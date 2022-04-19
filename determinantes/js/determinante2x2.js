@@ -1,4 +1,10 @@
 function calculaDeterminante() {
+
+    // if (document.getElementById().value == '') {
+    //     window.alert('Preencha TODOS os campos da matriz!');
+    //     return;
+    // }
+
     var num1 = document.getElementById("1").value;
     var num2 = document.getElementById("2").value;
     var num3 = document.getElementById("3").value;
