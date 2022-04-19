@@ -1,0 +1,28 @@
+body {
+    background-color: rgb(121, 167, 91);
+}
+
+h1 {
+    width: 100%;
+    color:rgb(255, 255, 255);
+}
+
+input {
+    width: 90px;
+    padding: 12px 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+button {
+    width: 200px;
+    text-align: left;
+    font-size: large;
+}
+
+p {
+    width: 500px;
+    text-align: left;
+    font-size: 30px;
+    color:rgb(255, 255, 255);
+}
