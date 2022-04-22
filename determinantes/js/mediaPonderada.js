@@ -8,10 +8,19 @@ function calculaMedia() {
     // console.log(notas);
 
     let nota = document.querySelectorAll(".nota");
+    let notas = [].map.call(nota, function (input) {
+      return input.value;
+    });
+    console.log(notas);
 
-        let notas = [].map.call(nota, function (input) {
-          return input.value;
-        })
+    let peso = document.querySelectorAll(".peso");
+    let pesos = [].map.call(peso, function (input) {
+      return input.value;
+    });
+    console.log(pesos);
 
-        console.log(notas);
-}
+    let resultado = notas[0] * pesos[0];
+    console.log(resultado);
+
+    
+  }
