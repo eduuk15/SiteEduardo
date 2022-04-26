@@ -11,13 +11,11 @@ function calculaMedia() {
     let notas = [].map.call(nota, function (input) {
       return parseFloat(input.value);
     });
-    console.log(notas);
 
     let peso = document.querySelectorAll(".peso");
     let pesos = [].map.call(peso, function (input) {
       return parseFloat(input.value);
     });
-    console.log(pesos);
 
     // let resultado = notas[0] * pesos[0];
     // console.log(resultado);
@@ -31,8 +29,9 @@ function calculaMedia() {
 
     let resultado = somaNotas / somaPesos;
 
-    document.getElementById("resultado").innerHTML = "Média Final = " + resultado;
+    if (!resultado) {
+      resultado = 'Não foi possível realizar o cálculo...';
+    }
 
-    console.log(somaPesos);
-    console.log(somaNotas);
+    document.getElementById("resultado").innerHTML = "Média Final = " + resultado;
   }

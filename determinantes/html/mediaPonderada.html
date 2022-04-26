@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Média Ponderada</title>
+        <link rel="stylesheet" href="../css/médiaPonderada.css">
     </head>
     <body>
         <h1>Média Ponderada</h1>
@@ -10,12 +11,11 @@
         <br>
         <form class="form">
         <div>
-            <input class="nota" type="text" placeholder="Insira sua nota aqui">
-            <input class="peso" type="text" placeholder="Insira o peso da prova">
+            <input class="nota" type="text" placeholder="Insira sua nota aqui"><input class="peso" type="text" placeholder="Insira o peso da prova">
         </div>
         </form>
-        <button onclick="insereNota()">Inserir uma nova nota</button>
-        <button onclick="calculaMedia()">Calcular média</button>
+        <button class="insere" onclick="insereNota()">Inserir uma nova nota</button>
+        <button class="calcula" onclick="calculaMedia()">Calcular média</button>
         <br>
         <p id="resultado">Média Final = </p>
     </body>
