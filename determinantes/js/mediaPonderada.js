@@ -29,6 +29,10 @@ function calculaMedia() {
         somaPesos += pesos[i]
     }
 
+    let resultado = somaNotas / somaPesos;
+
+    document.getElementById("resultado").innerHTML = "Média Final = " + resultado;
+
     console.log(somaPesos);
     console.log(somaNotas);
   }
