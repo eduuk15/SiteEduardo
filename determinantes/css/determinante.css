@@ -14,8 +14,14 @@ input {
     text-align: center;
 }
 
-button {
+button.determinante {
     width: 200px;
+    text-align: left;
+    font-size: large;
+}
+
+button.transposicao {
+    width: 150px;
     text-align: left;
     font-size: large;
 }
