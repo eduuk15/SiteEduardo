@@ -2,11 +2,11 @@
 <html>
     <head>
         <title>Determinante 3x3</title>
-        <link rel="stylesheet" href="../css/determinante.css">
+        <link rel="stylesheet" href="../../css/determinante.css">
     </head>
     <body>
         <h1>Determinante 3x3</h1>
-        <script src="../js/determinante3x3.js"></script>
+        <script src="../../js/determinantes/determinante3x3.js"></script>
         <form>
         <table>
             <tr>
@@ -45,7 +45,8 @@
         </table>
         </form>
         <br>
-        <button onclick="calculaDeterminante()">Calcular determinante!</button>
+        <button class="determinante" onclick="calculaDeterminante()">Calcular determinante!</button>
+        <button class="transposicao" onclick="transpoeMatriz()">Transpor matriz!</button>
         <br>
         <p id="determinante">det = </p>
     </body>
