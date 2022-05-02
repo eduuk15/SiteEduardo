@@ -16,26 +16,21 @@ function calculaDeterminante() {
     let num15 = document.getElementById("15").value;
     let num16 = document.getElementById("16").value;
 
-    let cofator1 = ((-1)**parseInt((document.getElementById("1").id) + 1))
-    * (((num6 * num11 * num16) + (num10 * num15 * num8) + (num14 + num7 * num12))
-    - ((num10 * num7 * num16) + (num6 * num15 * num12) + (num14 * num11 * num8)));
-    console.log(cofator1);
+    let det1 = ((num6 * num11 * num16) + (num10 * num15 * num8) + (num14 * num7 * num12))
+    - ((num10 * num7 * num16) + (num6 * num15 * num12) + (num14 * num11 * num8));
+    let cofator1 = 1 * det1;
 
-    let cofator2 = ((-1)**parseInt((document.getElementById("2").id) + 1))
-    * (((num5 * num11 * num16) + (num9 * num15 * num8) + (num13 + num7 * num12))
-    - ((num9 * num7 * num16) + (num5 * num15 * num12) + (num13 * num11 * num8)));
-    console.log(cofator2);
+    let det2 = ((num5 * num11 * num16) + (num9 * num15 * num8) + (num13 * num7 * num12))
+    - ((num9 * num7 * num16) + (num5 * num15 * num12) + (num13 * num11 * num8));
+    let cofator2 = (-1) * det2;
 
-    let cofator3 = ((-1)**parseInt((document.getElementById("3").id) + 1))
-    * (((num5 * num10 * num16) + (num9 * num14 * num8) + (num13 + num6 * num12))
-    - ((num9 * num6 * num16) + (num5 * num14 * num12) + (num13 * num10 * num8)));
-    console.log(cofator3);
+    let det3 = ((num5 * num10 * num16) + (num9 * num15 * num8) + (num13 * num6 * num12))
+    - ((num9 * num6 * num16) + (num5 * num15 * num12) + (num13 * num10 * num8));
+    let cofator3 = 1 * det3;
 
-    let cofator4 = ((-1)**(parseInt(document.getElementById("4").id) + 1))
-    * (((num5 * num10 * num15) + (num9 * num14 * num7) + (num13 + num6 * num11))
-    - ((num9 * num6 * num15) + (num5 * num14 * num11) + (num13 * num10 * num7)));
-    console.log(cofator4);
-    console.log(parseInt(document.getElementById("4").id) + 1);
+    let det4 = ((num5 * num10 * num15) + (num9 * num14 * num7) + (num13 * num6 * num11))
+    - ((num9 * num6 * num15) + (num5 * num14 * num11) + (num13 * num10 * num7));
+    let cofator4 = (-1) * det4;
 
     let det = (num1 * cofator1) + (num2 * cofator2) + (num3 * cofator3) + (num4 * cofator4);
     document.getElementById("determinante").innerHTML = "det = " + det;
