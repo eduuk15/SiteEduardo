@@ -4,8 +4,6 @@ function insereNota() {
 }
 
 function calculaMedia() {
-    // let notas = document.querySelector(".nota").value;
-    // console.log(notas);
 
     let nota = document.querySelectorAll(".nota");
     let notas = [].map.call(nota, function (input) {
@@ -16,9 +14,6 @@ function calculaMedia() {
     let pesos = [].map.call(peso, function (input) {
       return parseFloat(input.value);
     });
-
-    // let resultado = notas[0] * pesos[0];
-    // console.log(resultado);
 
     let somaNotas = 0
     let somaPesos = 0;
