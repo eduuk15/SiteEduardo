@@ -14,16 +14,16 @@ function calculaMedia() {
 
 
     let totalValores = 0
-    let produtoValores = 1;
+    let somaInversoValores = 0;
     for (let i = 0; i < valores.length; i++) {
         totalValores = valores.length;
-        produtoValores *= valores[i];
+        somaInversoValores += 1/valores[i];
 
         console.log(totalValores);
-        console.log(produtoValores);
+        console.log(somaInversoValores);
     }
 
-    let resultado = (produtoValores) ** (1/totalValores);
+    let resultado = (totalValores) / (1/totalValores);
     console.log(resultado);
 
     if (!resultado) {
