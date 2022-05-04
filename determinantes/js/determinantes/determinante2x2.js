@@ -1,18 +1,27 @@
+function leValoresForm() {
+    valores = []
+    for (let i = 1; i < 5; i++) {
+        valores.push(document.getElementById(`${i}`).value);
+    }
+    return valores;
+}
+
 function calculaDeterminante() {
+    valores = leValoresForm();
 
-    let num1 = document.getElementById("1").value;
-    let num2 = document.getElementById("2").value;
-    let num3 = document.getElementById("3").value;
-    let num4 = document.getElementById("4").value;
+    let det = ((valores[0] * valores[3]) - (valores[1] * valores[2]));
 
-    let det = ((num1 * num4) - (num2 * num3));
+    for (let i = 1; i < 10; i++) {
+        if (document.getElementById(`${i}`).value === "") {
+            det = "Todos os campos devem ser preenchidos."
+        }
+    }
     document.getElementById("determinante").innerHTML = "det = " + det;
 }
 
 function transpoeMatriz() {
-    let num2 = document.getElementById("2").value;
-    let num3 = document.getElementById("3").value;
+    valores = leValoresForm();
 
-    document.getElementById("3").value = num2;
-    document.getElementById("2").value = num3
+    document.getElementById("3").value = valores[1];
+    document.getElementById("2").value = valores[2];
 }

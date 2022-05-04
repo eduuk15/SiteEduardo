@@ -25,8 +25,14 @@ function calculaDeterminante() {
     - ((valores[8] * valores[5] * valores[14]) + (valores[4] * valores[13] * valores[10]) + (valores[12] * valores[9] * valores[6]));
     let cofator4 = (-1) * det4;
 
-    let det = (valores[0] * cofator1) + (valores[1] * cofator2) + (valores[2] * cofator3) + (valores[3] * cofator4);
-    document.getElementById("determinante").innerHTML = "det = " + det;
+    let resultado = (valores[0] * cofator1) + (valores[1] * cofator2) + (valores[2] * cofator3) + (valores[3] * cofator4);
+
+    for (let i = 1; i < 10; i++) {
+        if (document.getElementById(`${i}`).value === "") {
+            resultado = "Todos os campos devem ser preenchidos."
+        }
+    }
+    document.getElementById("determinante").innerHTML = "det = " + resultado;
 }
 
 function transpoeMatriz() {

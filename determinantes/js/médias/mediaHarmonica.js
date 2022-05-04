@@ -10,25 +10,18 @@ function calculaMedia() {
       return parseFloat(input.value);
     });
 
-    console.log(valores);
-
-
     let totalValores = 0
     let somaInversoValores = 0;
     for (let i = 0; i < valores.length; i++) {
         totalValores = valores.length;
         somaInversoValores += 1/valores[i];
-
-        console.log(totalValores);
-        console.log(somaInversoValores);
     }
 
-    let resultado = (totalValores) / (1/totalValores);
-    console.log(resultado);
+    let resultado = (totalValores) / (somaInversoValores);
 
     if (!resultado) {
       resultado = 'Não foi possível realizar o cálculo...';
     }
 
-    document.getElementById("resultado").innerHTML = "Média Geométrica = " + resultado;
+    document.getElementById("resultado").innerHTML = "Média Harmônica = " + resultado;
   }

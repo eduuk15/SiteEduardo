@@ -1,30 +1,33 @@
-function calculaDeterminante() {
-    let num1 = document.getElementById("1").value;
-    let num2 = document.getElementById("2").value;
-    let num3 = document.getElementById("3").value;
-    let num4 = document.getElementById("4").value;
-    let num5 = document.getElementById("5").value;
-    let num6 = document.getElementById("6").value;
-    let num7 = document.getElementById("7").value;
-    let num8 = document.getElementById("8").value;
-    let num9 = document.getElementById("9").value;
+function leValoresForm() {
+    valores = []
+    for (let i = 1; i < 10; i++) {
+        valores.push(document.getElementById(`${i}`).value);
+    }
+    return valores;
+}
 
-    let det = ((num1 * num5 * num9) + (num2 * num6 * num7) + (num3 * num4 * num8)) - ((num2 * num4 * num9) + (num1 * num6 * num8) + (num3 * num5 * num7));
-    document.getElementById("determinante").innerHTML = "det = " + det;
+function calculaDeterminante() {
+    valores = leValoresForm();
+
+    let resultado = ((valores[0] * valores[4] * valores[8]) + (valores[1] * valores[5] * valores[6]) + (valores[2] * valores[3] * valores[7])) 
+    - ((valores[1] * valores[3] * valores[8]) + (valores[0] * valores[5] * valores[7]) + (valores[2] * valores[4] * valores[6]));
+
+    for (let i = 1; i < 10; i++) {
+        if (document.getElementById(`${i}`).value === "") {
+            resultado = "Todos os campos devem ser preenchidos."
+        }
+    }
+
+    document.getElementById("determinante").innerHTML = "det = " + resultado;
 }
 
 function transpoeMatriz() {
-    let num2 = document.getElementById("2").value;
-    let num3 = document.getElementById("3").value;
-    let num4 = document.getElementById("4").value;
-    let num6 = document.getElementById("6").value;
-    let num7 = document.getElementById("7").value;
-    let num8 = document.getElementById("8").value;
+    valores = leValoresForm();
 
-    document.getElementById("2").value = num4;
-    document.getElementById("3").value = num7;
-    document.getElementById("4").value = num2;
-    document.getElementById("6").value = num8;
-    document.getElementById("7").value = num3;
-    document.getElementById("8").value = num6;
+    document.getElementById("2").value = valores[3];
+    document.getElementById("3").value = valores[6];
+    document.getElementById("4").value = valores[1];
+    document.getElementById("6").value = valores[7];
+    document.getElementById("7").value = valores[2];
+    document.getElementById("8").value = valores[5];
 }
