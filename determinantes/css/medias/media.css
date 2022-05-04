@@ -1,0 +1,57 @@
+body {
+    background-color: rgb(121, 167, 91);
+}
+
+h1 {
+    width: 100%;
+    color:rgb(255, 255, 255);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+}
+
+input.valor {
+    width: 150px;
+    height: 20px;;;
+    padding: 8px 20px;
+    font-size: 11px;
+    text-align: left;
+    font-size: large;
+}
+
+input.peso {
+    width: 150px;
+    height: 20px;
+    padding: 8px 20px;
+    font-size: 11px;
+    text-align: left;
+    font-size: large;
+}
+
+
+
+button.insere {
+    width: 194px;
+    height: 25px;
+    font-size: 11px;
+    text-align: left;
+    font-size:medium
+}
+
+button.calcula {
+    width: 150px;
+    height: 25px;
+    font-size: 11px;
+    text-align: left;
+    font-size:medium;
+}
+
+p {
+    width: 100%;
+    text-align: left;
+    font-size: 30px;
+    color:rgb(255, 255, 255);
+}

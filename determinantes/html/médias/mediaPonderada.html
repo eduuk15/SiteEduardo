@@ -2,21 +2,20 @@
 <html>
     <head>
         <title>Média Ponderada</title>
-        <link rel="stylesheet" href="../css/médiaPonderada.css">
+        <link rel="stylesheet" href="../../css/medias/media.css">
     </head>
     <body>
         <h1>Média Ponderada</h1>
-        <script src="../js/mediaPonderada.js"></script>
+        <script src="../../js/medias/mediaPonderada.js"></script>
         <br>
         <br>
         <form class="form">
-        <div>
-            <input class="nota" type="text" placeholder="Insira sua nota aqui"><input class="peso" type="text" placeholder="Insira o peso da prova">
+        <div class="div">
+            <input class="valor" type="number" placeholder="Insira o valor aqui"><input class="peso" type="number" placeholder="Insira o peso aqui">
         </div>
         </form>
-        <button class="insere" onclick="insereNota()">Inserir uma nova nota</button>
-        <button class="calcula" onclick="calculaMedia()">Calcular média</button>
+        <button class="insere" onclick="insereValor()">Inserir um novo valor!</button><button class="calcula" onclick="calculaMedia()">Calcular média!</button>
         <br>
-        <p id="resultado">Média Final = </p>
+        <p id="resultado">Média Ponderada = </p>
     </body>
 </html>
