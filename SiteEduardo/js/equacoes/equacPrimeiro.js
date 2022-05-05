@@ -44,7 +44,9 @@ function calculaEquacao() {
         }
     }
 
+    ///////////////////////////////////////////////////
     let resultado = (somaElementosLadoDireito - somaElementosLadoEsquerdo) / coeficiente;
+    document.getElementById("resultado").innerHTML = "Resultado: " + ;
 
     
 
