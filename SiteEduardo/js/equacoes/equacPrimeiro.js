@@ -36,28 +36,39 @@ function calculaEquacao() {
     }
 
     ///////////////////////////////////////////////////
+    let incognita = "";
     let coeficiente = 0;
     for (let i = 0; i < alfabeto.length; i++) {
-        coeficiente = parseFloat(ladoEsquerdo.split(`${alfabeto[i]}`)[0]);
-        if (isNaN(coeficiente) === true && coeficiente != alfabeto[i]) {
+        if (ladoEsquerdo.includes(alfabeto[i])) {
+            incognita = alfabeto[i];
+        }
+    }
+
+    for (let i = 0; i < elementosLadoEsquerdo.length; i++) {
+        if (elementosLadoEsquerdo[i].includes(incognita)) {
+            coeficiente += parseFloat(elementosLadoEsquerdo[i]);
+        };
+        if (isNaN(coeficiente) === true && coeficiente != incognita) {
             coeficiente = 1;
         }
+        
     }
 
     ///////////////////////////////////////////////////
     let resultado = (somaElementosLadoDireito - somaElementosLadoEsquerdo) / coeficiente;
-    document.getElementById("resultado").innerHTML = "Resultado: " + ;
+    document.getElementById("resultado").innerHTML = "Resultado: " + incognita + " = " + resultado;
 
     
 
-    console.log(equacao);
-    console.log(ladosIgualdade);
-    console.log(ladoEsquerdo);
+    console.log(equacao); 
+    console.log(ladosIgualdade); 
+    console.log(ladoEsquerdo); 
     console.log(elementosLadoEsquerdo);
-    console.log(ladoDireito);
-    console.log(elementosLadoDireito);
-    console.log(somaElementosLadoDireito);
-    console.log(somaElementosLadoEsquerdo);
-    console.log(coeficiente);
-    console.log(resultado);
+    console.log(ladoDireito); 
+    console.log(elementosLadoDireito); 
+    console.log(somaElementosLadoDireito); 
+    console.log(somaElementosLadoEsquerdo); 
+    console.log(coeficiente); 
+    console.log(resultado); 
+    console.log(incognita); 
 }
