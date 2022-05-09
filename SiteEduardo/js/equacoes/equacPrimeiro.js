@@ -45,10 +45,13 @@ function calculaEquacao() {
     }
 
     for (let i = 0; i < elementosLadoEsquerdo.length; i++) {
-        if (elementosLadoEsquerdo[i].includes(incognita)) {
+        if (elementosLadoEsquerdo[i].toString().includes(`${incognita}`)) {
             coeficiente += parseFloat(elementosLadoEsquerdo[i]);
-        };
-        if (isNaN(coeficiente) === true && coeficiente != incognita) {
+            console.log('entrou');
+            console.log(elementosLadoEsquerdo[i]);
+            console.log(coeficiente);
+        }
+        if (isNaN(coeficiente) === true && coeficiente !== incognita) {
             coeficiente = 1;
         }
         
@@ -60,15 +63,15 @@ function calculaEquacao() {
 
     
 
-    console.log(equacao); 
-    console.log(ladosIgualdade); 
-    console.log(ladoEsquerdo); 
-    console.log(elementosLadoEsquerdo);
-    console.log(ladoDireito); 
-    console.log(elementosLadoDireito); 
-    console.log(somaElementosLadoDireito); 
-    console.log(somaElementosLadoEsquerdo); 
-    console.log(coeficiente); 
-    console.log(resultado); 
-    console.log(incognita); 
+    // console.log(equacao); 
+    // console.log(ladosIgualdade); 
+    // console.log(ladoEsquerdo); 
+    // console.log(elementosLadoEsquerdo);
+    // console.log(ladoDireito); 
+    // console.log(elementosLadoDireito); 
+    // console.log(somaElementosLadoDireito); 
+    // console.log(somaElementosLadoEsquerdo); 
+    // console.log(coeficiente); 
+    // console.log(resultado); 
+    // console.log(incognita); 
 }
