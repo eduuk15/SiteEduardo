@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(121, 167, 91);
+    background-color:  #1e1e1e;
 }
 
 h1 {
@@ -45,7 +45,8 @@ button.insere {
     height: 25px;
     font-size: 11px;
     text-align: left;
-    font-size:medium
+    font-size: medium;
+    cursor: pointer;
 }
 
 button.calcula {
@@ -53,7 +54,8 @@ button.calcula {
     height: 25px;
     font-size: 11px;
     text-align: left;
-    font-size:medium;
+    font-size: medium;
+    cursor: pointer;
 }
 
 ul.botoes {

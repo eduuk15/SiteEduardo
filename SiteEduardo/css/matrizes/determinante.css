@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(121, 167, 91);
+    background-color: #1e1e1e
 }
 
 h1 {
@@ -29,12 +29,14 @@ button.determinante {
     width: 200px;
     text-align: left;
     font-size: large;
+    cursor: pointer;
 }
 
 button.transposicao {
     width: 150px;
     text-align: left;
     font-size: large;
+    cursor: pointer;
 }
 
 p {
