@@ -3,8 +3,13 @@ body {
 }
 
 h1 {
+    padding-left: 100px;
     width: 100%;
     color:rgb(255, 255, 255);
+}
+
+table {
+    padding-left: 100px;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -20,6 +25,10 @@ input {
     text-align: center;
 }
 
+ul {
+    padding-left: 100px;
+}
+
 button.determinante {
     width: 200px;
     text-align: left;
@@ -33,6 +42,7 @@ button.transposicao {
 }
 
 p {
+    padding-left: 100px;
     width: 500px;
     text-align: left;
     font-size: 30px;
