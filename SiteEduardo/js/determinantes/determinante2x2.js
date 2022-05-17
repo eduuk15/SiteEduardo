@@ -11,7 +11,7 @@ function calculaDeterminante() {
 
     let det = ((valores[0] * valores[3]) - (valores[1] * valores[2]));
 
-    for (let i = 1; i < 10; i++) {
+    for (let i = 1; i < 5; i++) {
         if (document.getElementById(`${i}`).value === "") {
             det = "Todos os campos devem ser preenchidos."
         }
