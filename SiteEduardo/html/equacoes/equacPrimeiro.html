@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equação do 1º grau</title>
-    <link rel="stylesheet" href="../../css/equacoes/equacoes.css">
-</head>
-<body>
-    <h1>Equação do 1º grau</h1>
-    <script src="../../js/equacoes/equacPrimeiro.js"></script>
-    <form class="form">
-        <input id="equacao" type="text" placeholder="Insira a equação aqui"> 
-    </form>
-    <button class="calcula" onclick="calculaEquacao()">Resolver equação!</button>
-    <p id="resultado">Resultado: </p>
-</body>
+<html>
+    <head>
+        <title>Equação do 1º grau</title>
+        <link rel="stylesheet" href="../../css/equacoes/equacoes.css">
+        <link rel="stylesheet" href="../../menu/menu.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    </head>
+    <body>
+        <div id="sidebar"></div>
+        <script>
+            $(function(){
+                $("#sidebar").load("menu.html")
+            })
+        </script>
+        <h1>Equação do 1º grau</h1>
+        <script src="../../js/equacoes/equacPrimeiro.js"></script>
+        <form class="form">
+            <input id="equacao" type="text" placeholder="Insira a equação aqui"> 
+        </form>
+        <button class="calcula" onclick="calculaEquacao()">Resolver equação!</button>
+        <p id="resultado">Resultado: </p>
+    </body>
 </html>

@@ -3,15 +3,15 @@
     <head>
         <title>Determinante 2x2</title>
         <link rel="stylesheet" href="../../css/matrizes/determinante.css">
-    </head>
-    <body>
-        <div id="sidebar"></div>
         <link rel="stylesheet" href="../../menu/menu.css">
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    </head>
+    <body>
+        <div id="sidebar"></div>
         <script>
             $(function(){
-                $("#sidebar").load("../../menu/menu.html")
+                $("#sidebar").load("menu.html")
             })
         </script>
         <h1>Determinante 2x2</h1>
@@ -36,12 +36,10 @@
             </tr>
         </table>
         </form>
-        <br>
-        <ul>
-        <button class="determinante" onclick="calculaDeterminante()">Calcular determinante!</button>
-        <button class="transposicao" onclick="transpoeMatriz()">Transpor matriz!</button>
-        </ul>
-        <br>
+        <p>
+            <button class="determinante" onclick="calculaDeterminante()">Calcular determinante!</button>
+            <button class="transposicao" onclick="transpoeMatriz()">Transpor matriz!</button>
+        </p>
         <p id="determinante">det = </p>
     </body>
 </html>

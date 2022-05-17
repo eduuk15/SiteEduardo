@@ -3,8 +3,17 @@
     <head>
         <title>Média Geométrica</title>
         <link rel="stylesheet" href="../../css/medias/media.css">
+        <link rel="stylesheet" href="../../menu/menu.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     </head>
     <body>
+        <div id="sidebar"></div>
+        <script>
+            $(function(){
+                $("#sidebar").load("menu.html")
+            })
+        </script>
         <h1>Média Geométrica</h1>
         <script src="../../js/medias/mediaGeometrica.js"></script>
         <br>
