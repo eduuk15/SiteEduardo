@@ -25,3 +25,14 @@ function transpoeMatriz() {
     document.getElementById("3").value = valores[1];
     document.getElementById("2").value = valores[2];
 }
+
+function mostraSolucao() {
+
+    document.getElementById("5").value = valores[0];
+    document.getElementById("6").value = valores[1];
+    document.getElementById("7").value = valores[2];
+    document.getElementById("8").value = valores[3];
+
+    document.getElementById("solucao").innerHTML = 'det = ' + '(' + `${valores[0]} ` + 'X ' + `${valores[3]}` + ') ' + 
+    '- ' + '(' + `${valores[1]} ` + 'X ' + `${valores[2]}` + ')';
+}
