@@ -8,12 +8,28 @@ function calculaEquacao() {
         "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
 
     ///////////////////////////////////////////////////
+
     let ladoEsquerdo = ladosIgualdade[0];
+    let incognita = "";
+    for (let i = 0; i < alfabeto.length; i++) {
+        if (ladoEsquerdo.includes(alfabeto[i])) {
+            incognita = alfabeto[i];
+        }
+    }
     let elementosLadoEsquerdo = ladoEsquerdo.split(" ");
     let somaElementosLadoEsquerdo = 0;
     for (let i = 0; i < elementosLadoEsquerdo.length; i++) {
         if (elementosLadoEsquerdo[i] === sinais[1]) {
-            elementosLadoEsquerdo[i + 1] *= -1;
+            if (isNaN(elementosLadoEsquerdo[i + 1]) === false) {
+                elementosLadoEsquerdo[i + 1] *= -1;
+            }
+            if (elementosLadoEsquerdo[i + 1].toString().includes(`${incognita}`) && elementosLadoEsquerdo[i + 1] !== incognita) {
+                elementosLadoEsquerdo[i + 1] = (-1 * parseFloat(elementosLadoEsquerdo[i + 1])) + incognita; 
+            }
+
+            if (isNaN(elementosLadoEsquerdo[i]) === true && typeof elementosLadoEsquerdo[i] !== 'string') {
+                elementosLadoEsquerdo[i] = -1 + incognita;
+            }
         }
 
         if (isNaN(elementosLadoEsquerdo[i]) === false) {
@@ -36,25 +52,17 @@ function calculaEquacao() {
     }
 
     ///////////////////////////////////////////////////
-    let incognita = "";
-    let coeficiente = 0;
-    for (let i = 0; i < alfabeto.length; i++) {
-        if (ladoEsquerdo.includes(alfabeto[i])) {
-            incognita = alfabeto[i];
-        }
-    }
 
+    let coeficiente = 0;
     for (let i = 0; i < elementosLadoEsquerdo.length; i++) {
+        if (elementosLadoEsquerdo[i] )
         if (elementosLadoEsquerdo[i].toString().includes(`${incognita}`)) {
+
+            if (elementosLadoEsquerdo[i] === incognita) {
+                elementosLadoEsquerdo[i] = 1;
+            }
             coeficiente += parseFloat(elementosLadoEsquerdo[i]);
-            console.log('entrou');
-            console.log(elementosLadoEsquerdo[i]);
-            console.log(coeficiente);
         }
-        if (isNaN(coeficiente) === true && coeficiente !== incognita) {
-            coeficiente = 1;
-        }
-        
     }
 
     ///////////////////////////////////////////////////
