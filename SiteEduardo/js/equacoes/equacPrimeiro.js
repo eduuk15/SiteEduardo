@@ -68,17 +68,27 @@ function calculaEquacao() {
 
     /////////////////////////////////////////////////// - Tratamento do coeficiente
 
-    let coeficiente = 0;
+    let somaCoeficientesEsquerdo = 0;
     for (let i = 0; i < elementosLadoEsquerdo.length; i++) {
-        if (elementosLadoEsquerdo[i] )
         if (elementosLadoEsquerdo[i].toString().includes(`${incognita}`)) {
-
             if (elementosLadoEsquerdo[i] === incognita) {
                 elementosLadoEsquerdo[i] = 1;
             }
-            coeficiente += parseFloat(elementosLadoEsquerdo[i]);
+            somaCoeficientesEsquerdo += parseFloat(elementosLadoEsquerdo[i]);
         }
     }
+
+    let somaCoeficientesDireito = 0;
+    for (let i = 0; i < elementosLadoDireito.length; i++) {
+        if (elementosLadoDireito[i].toString().includes(`${incognita}`)) {
+            if (elementosLadoDireito[i] === incognita) {
+                elementosLadoDireito[i] = 1;
+            }
+            somaCoeficientesDireito += parseFloat(elementosLadoDireito[i]);
+        }
+    }
+
+    let coeficiente = somaCoeficientesEsquerdo - somaCoeficientesDireito;
 
     /////////////////////////////////////////////////// - Tratamento do resultado
     let resultado = (somaElementosLadoDireito - somaElementosLadoEsquerdo) / coeficiente;
