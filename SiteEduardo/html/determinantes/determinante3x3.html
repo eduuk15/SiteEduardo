@@ -16,47 +16,110 @@
         </script>
         <h1>Determinante 3x3</h1>
         <script src="../../js/determinantes/determinante3x3.js"></script>
-        <form>
-        <table>
-            <tr>
-                <td>
-                    <input type="number" id="1" placeholder="a11">
-                </td>
-                <td>
-                    <input type="number" id="2" placeholder="a12">
-                </td>
-                <td>
-                    <input type="number" id="3" placeholder="a13">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="number" id="4" placeholder="a21">
-                </td>
-                <td>
-                    <input type="number" id="5" placeholder="a22">
-                </td>
-                <td>
-                    <input type="number" id="6" placeholder="a23">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="number" id="7" placeholder="a31">
-                </td>
-                <td>
-                    <input type="number" id="8" placeholder="a32">
-                </td>
-                <td>
-                    <input type="number" id="9" placeholder="a33">
-                </td>
-            </tr>
-        </table>
-        </form>
-        <p>
-            <button class="determinante" onclick="calculaDeterminante()">Calcular determinante!</button>
-            <button class="transposicao" onclick="transpoeMatriz()">Transpor matriz!</button>
-        </p>
-        <p id="determinante">det = </p>
+        <div class="tabelas">
+            <div class="principal">
+                <form>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="number" id="1" placeholder="a11">
+                            </td>
+                            <td>
+                                <input type="number" id="2" placeholder="a12">
+                            </td>
+                            <td>
+                                <input type="number" id="3" placeholder="a13">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="number" id="4" placeholder="a21">
+                            </td>
+                            <td>
+                                <input type="number" id="5" placeholder="a22">
+                            </td>
+                            <td>
+                                <input type="number" id="6" placeholder="a23">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="number" id="7" placeholder="a31">
+                            </td>
+                            <td>
+                                <input type="number" id="8" placeholder="a32">
+                            </td>
+                            <td>
+                                <input type="number" id="9" placeholder="a33">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <p>
+                    <button class="determinante" onclick="calculaDeterminante()">Calcular determinante!</button>
+                    <button class="transposicao" onclick="transpoeMatriz()">Transpor matriz!</button>
+                </p>
+                <p id="determinante">det = </p>
+            </div>
+            <div class="solucao">
+                <table>
+                    <tr>
+                        <td>
+                            <input id="10" readonly>
+                        </td>
+                        <td>
+                            <input id="11" readonly>
+                        </td>
+                        <td>
+                            <input id="12" readonly>
+                        </td>
+                        <td>
+                            <input id="13" readonly>
+                        </td>
+                        <td>
+                            <input id="14" readonly>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="15" readonly>
+                        </td>
+                        <td>
+                            <input id="16" readonly>
+                        </td>
+                        <td>
+                            <input id="17" readonly>
+                        </td>
+                        <td>
+                            <input id="18" readonly>
+                        </td>
+                        <td>
+                            <input id="19" readonly>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="20" readonly>
+                        </td>
+                        <td>
+                            <input id="21" readonly>
+                        </td>
+                        <td>
+                            <input id="22" readonly>
+                        </td>
+                        <td>
+                            <input id="23" readonly>
+                        </td>
+                        <td>
+                            <input id="24" readonly>
+                        </td>
+                    </tr>
+                </table>
+                <p class="solucao-btn">
+                    <button class="solucao" onclick="mostraSolucao()">Mostrar Solução!</button>
+                </p>
+                <p id="solucao">det  = </p>
+            </div>
+        </div>
     </body>
 </html>

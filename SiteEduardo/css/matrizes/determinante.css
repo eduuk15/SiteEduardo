@@ -47,6 +47,10 @@ p {
     color:rgb(255, 255, 255);
 }
 
+p#solucao {
+    width: 700px;
+}
+
 div.tabelas {
     display: flex;
 }
