@@ -1,4 +1,5 @@
 function calculaEquacao() {
+    //////////////////////////////////////////////////// - Criação dos elementos básicos
     let sinais = ["+", "-"];
     let equacao = document.getElementById("equacao").value;
     let ladosIgualdade = equacao.split(" = ");
@@ -7,7 +8,7 @@ function calculaEquacao() {
         "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T",
         "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
 
-    ///////////////////////////////////////////////////
+    /////////////////////////////////////////////////// - Tratamento dos elementos do lado esquerdo da igualdade
 
     let ladoEsquerdo = ladosIgualdade[0];
     let incognita = "";
@@ -24,7 +25,7 @@ function calculaEquacao() {
                 elementosLadoEsquerdo[i + 1] *= -1;
             }
             if (elementosLadoEsquerdo[i + 1].toString().includes(`${incognita}`) && elementosLadoEsquerdo[i + 1] !== incognita) {
-                elementosLadoEsquerdo[i + 1] = (-1 * parseFloat(elementosLadoEsquerdo[i + 1])) + incognita; 
+                elementosLadoEsquerdo[i + 1] = (-1 * parseFloat(elementosLadoEsquerdo[i + 1])) + incognita;
             }
 
             if (isNaN(elementosLadoEsquerdo[i]) === true && typeof elementosLadoEsquerdo[i] !== 'string') {
@@ -37,7 +38,7 @@ function calculaEquacao() {
         }
     }
 
-    //////////////////////////////////////////////////
+    ////////////////////////////////////////////////// - Tratamento dos elementos do lado direito da igualdade
     let ladoDireito = ladosIgualdade[1];
     let elementosLadoDireito = ladoDireito.split(" ");
     let somaElementosLadoDireito = 0;
@@ -51,7 +52,7 @@ function calculaEquacao() {
         }
     }
 
-    ///////////////////////////////////////////////////
+    /////////////////////////////////////////////////// - Tratamento do coeficiente
 
     let coeficiente = 0;
     for (let i = 0; i < elementosLadoEsquerdo.length; i++) {
@@ -65,21 +66,21 @@ function calculaEquacao() {
         }
     }
 
-    ///////////////////////////////////////////////////
+    /////////////////////////////////////////////////// - Tratamento do resultado
     let resultado = (somaElementosLadoDireito - somaElementosLadoEsquerdo) / coeficiente;
     document.getElementById("resultado").innerHTML = "Resultado: " + incognita + " = " + resultado;
 
-    
 
-    // console.log(equacao); 
-    // console.log(ladosIgualdade); 
-    // console.log(ladoEsquerdo); 
-    // console.log(elementosLadoEsquerdo);
-    // console.log(ladoDireito); 
-    // console.log(elementosLadoDireito); 
-    // console.log(somaElementosLadoDireito); 
-    // console.log(somaElementosLadoEsquerdo); 
-    // console.log(coeficiente); 
-    // console.log(resultado); 
-    // console.log(incognita); 
+    // Consoles.log
+    console.log('A equação é: ' + equacao);
+    // console.log(ladosIgualdade);
+    // console.log(ladoEsquerdo);
+    console.log('Os elementos do lado esquerdo são: ' + elementosLadoEsquerdo);
+    // console.log(ladoDireito);
+    // console.log(elementosLadoDireito);
+    // console.log(somaElementosLadoDireito);
+    // console.log(somaElementosLadoEsquerdo);
+    console.log('O coeficiente é: ' + coeficiente);
+    // console.log(resultado);
+    // console.log(incognita);
 }
