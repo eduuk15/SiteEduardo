@@ -16,70 +16,134 @@
         </script>
         <h1>Determinante 4x4</h1>
         <script src="../../js/determinantes/determinante4x4.js"></script>
+        <div class="tabelas">
+            <div class="principal">
         <form>
-        <table>
-            <tr>
-                <td>
-                    <input type="number" id="1" placeholder="a11">
-                </td>
-                <td>
-                    <input type="number" id="5" placeholder="a12">
-                </td>
-                <td>
-                    <input type="number" id="9" placeholder="a13">
-                </td>
-                <td>
-                    <input type="number" id="13" placeholder="a14">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="number" id="2" placeholder="a21">
-                </td>
-                <td>
-                    <input type="number" id="6" placeholder="a22">
-                </td>
-                <td>
-                    <input type="number" id="10" placeholder="a23">
-                </td>
-                <td>
-                    <input type="number" id="14" placeholder="a24">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="number" id="3" placeholder="a31">
-                </td>
-                <td>
-                    <input type="number" id="7" placeholder="a32">
-                </td>
-                <td>
-                    <input type="number" id="11" placeholder="a33">
-                </td>
-                <td>
-                    <input type="number" id="15" placeholder="a34">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="number" id="4" placeholder="a41">
-                </td>
-                <td>
-                    <input type="number" id="8" placeholder="a42">
-                </td>
-                <td>
-                    <input type="number" id="12" placeholder="a43">
-                </td>
-                <td>
-                    <input type="number" id="16" placeholder="a44">
-                </td>
-            </tr>
-        </table>
+            <table>
+                <tr>
+                    <td>
+                        <input type="number" id="1" placeholder="a11">
+                    </td>
+                    <td>
+                        <input type="number" id="5" placeholder="a12">
+                    </td>
+                    <td>
+                        <input type="number" id="9" placeholder="a13">
+                    </td>
+                    <td>
+                        <input type="number" id="13" placeholder="a14">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="number" id="2" placeholder="a21">
+                    </td>
+                    <td>
+                        <input type="number" id="6" placeholder="a22">
+                    </td>
+                    <td>
+                        <input type="number" id="10" placeholder="a23">
+                    </td>
+                    <td>
+                        <input type="number" id="14" placeholder="a24">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="number" id="3" placeholder="a31">
+                    </td>
+                    <td>
+                        <input type="number" id="7" placeholder="a32">
+                    </td>
+                    <td>
+                        <input type="number" id="11" placeholder="a33">
+                    </td>
+                    <td>
+                        <input type="number" id="15" placeholder="a34">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="number" id="4" placeholder="a41">
+                    </td>
+                    <td>
+                        <input type="number" id="8" placeholder="a42">
+                    </td>
+                    <td>
+                        <input type="number" id="12" placeholder="a43">
+                    </td>
+                    <td>
+                        <input type="number" id="16" placeholder="a44">
+                    </td>
+                </tr>
+            </table>
         </form>
         <p>
             <button class="determinante" onclick="calculaDeterminante()">Calcular determinante!</button>
             <button class="transposicao" onclick="transpoeMatriz()">Transpor matriz!</button>
         </p>
         <p id="determinante">det = </p>
+    </div>
+    <div class="solucao">
+        <table>
+            <tr>
+                <td>
+                    <input id="17" readonly>
+                </td>
+                <td>
+                    <input id="18" readonly>
+                </td>
+                <td>
+                    <input id="19" readonly>
+                </td>
+                <td>
+                    <input id="20" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="21" readonly>
+                </td>
+                <td>
+                    <input id="22" readonly>
+                </td>
+                <td>
+                    <input id="23" readonly>
+                </td>
+                <td>
+                    <input id="24" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="25" readonly>
+                </td>
+                <td>
+                    <input id="26" readonly>
+                </td>
+                <td>
+                    <input id="27" readonly>
+                </td>
+                <td>
+                    <input id="28" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="29" readonly>
+                </td>
+                <td>
+                    <input id="30" readonly>
+                </td>
+                <td>
+                    <input id="31" readonly>
+                </td>
+                <td>
+                    <input id="32" readonly>
+                </td>
+            </tr>
+        </table>
+        </div>
+        </div>
     </body>
 </html>
