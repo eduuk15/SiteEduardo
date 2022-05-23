@@ -1,10 +1,15 @@
 function insereValor() {
-    let form = document.querySelector("form");
-    form.insertAdjacentHTML('beforeend', '<div><input class="valor" type="number" placeholder="Insira o valor aqui"><input class="peso" type="number" placeholder="Insira o peso aqui"</div>');
+  let form = document.querySelector("form");
+  const randomID = `${Date.now().toString(36)}${Math.random().toString(36).substr(2)}`;
+  form.insertAdjacentHTML('beforeend', '<div class="div" id="' + randomID + '"><input class="valor" type="number" placeholder="Insira o valor aqui"><input class="peso" type="number" placeholder="Insira o peso aqui"</div><input type="button" class="special_remove" value="X" onclick="removeValor(\'' + randomID +'\')"></input>');
+}
+
+function removeValor(idToRemove) {
+  const el = document.getElementById(idToRemove)
+  el.parentNode.removeChild(el)
 }
 
 function calculaMedia() {
-
     let valor = document.querySelectorAll(".valor");
     let valores = [].map.call(valor, function (input) {
       return parseFloat(input.value);
