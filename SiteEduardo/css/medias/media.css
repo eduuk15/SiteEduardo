@@ -69,3 +69,7 @@ p {
     font-size: 30px;
     color:rgb(255, 255, 255);
 }
+
+input.special_remove {
+    height: 20px;
+}

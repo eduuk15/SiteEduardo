@@ -4,7 +4,8 @@ function insereValor() {
   form.insertAdjacentHTML('beforeend',
   `<div class="div" id="${randomID}">
             <input class="valor" type="number" placeholder="Insira o valor aqui">
-            <input class="peso" type="number" placeholder="Insira o peso aqui"><input type="button" class="special_remove" value="Remover" onclick="removeValor('${randomID}')">
+            <input class="peso" type="number" placeholder="Insira o peso aqui">
+            <input type="button" class="special_remove" value="Remover" onclick="removeValor('${randomID}')">
           </div>`);
 }
 
