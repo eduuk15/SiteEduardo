@@ -1,48 +1,68 @@
+/**
+ * @author Eduardo Knopp
+ * @since 24/05/2022
+ *
+ * Método responsável pelo cálculo da equação, tratamento dos elementos (coeficiente, lados da equação...), inserção do resultado em tela, etc.
+ */
 function calculaEquacao() {
-    //////////////////////////////////////////////////// - Criação dos elementos básicos
+    // Criação dos sinais
     let sinais = ["+", "-", "–"];
+    // Recebe a equação passada no input do navegador
     let equacao = document.getElementById("equacao").value;
+    // Separa a equação em duas partes, usando o sinal de "=" como separador
     let ladosIgualdade = equacao.split(" = ");
+    // Criação do alfabeto
     let alfabeto =  [
         "a", "A", "b", "B", "c", "C", "d", "D", "e", "E", "f", "F", "g", "G", "h", "H", "i", "I", "j", "J",
         "k", "K", "l", "L", "m", "M", "n", "N", "o", "O", "p", "P", "q", "Q", "r", "R", "s", "S", "t", "T",
         "u", "U", "v", "V", "w", "W", "x", "X", "y", "Y", "z", "Z"];
 
-    /////////////////////////////////////////////////// - Tratamento dos elementos do lado esquerdo da igualdade
-
+    // Criação do lado esquerdo da equação
     let ladoEsquerdo = ladosIgualdade[0];
+    // Criação da incógnita
     let incognita = "";
+    // Enquanto "i" for menor que o tamanho do alfabeto, entre maiúsculas e minúsculas, "i" é incrementado
     for (let i = 0; i < alfabeto.length; i++) {
+        // Se o lado esquerdo da equação possuir qualquer letra do alfabeto...
         if (ladoEsquerdo.includes(alfabeto[i])) {
+            // [...] a incógnita recebe a letra encontrada
             incognita = alfabeto[i];
         }
     }
+    // Transforma o ladoEsquerdo (string) num (array), quando separado por um espaço em branco - OBS: DEVERÁ SER ALTERADO NO FUTURO
     let elementosLadoEsquerdo = ladoEsquerdo.split(" ");
+    // Criação da soma dos elementos que compõe o array
     let somaElementosLadoEsquerdo = 0;
+    // Enquanto "i" for menor que o tamanho do array "elementosLadoEsquerdo", "i" é incrementado
     for (let i = 0; i < elementosLadoEsquerdo.length; i++) {
+        // Se um elemento for um dos sinais negativos...
         if (elementosLadoEsquerdo[i] === sinais[1] || elementosLadoEsquerdo[i] === sinais[2]) {
+            // [...] e se o elemento seguinte for numérico...
             if (isNaN(elementosLadoEsquerdo[i + 1]) === false) {
+                // [...] tal elemento é multiplicado por -1, ou seja, seu sinal é trocado
                 elementosLadoEsquerdo[i + 1] *= -1;
             }
+            // [...] e se o elemento seguinte incluir a incógnita, não sendo a própria incógnita...
             if (elementosLadoEsquerdo[i + 1].toString().includes(`${incognita}`) && elementosLadoEsquerdo[i + 1] !== incognita) {
+                // [...] o valor numérico de tal elemento é multiplicado por -1, ou seja, seu sinal é trocado, além de ser concatenado com a incógnita
                 elementosLadoEsquerdo[i + 1] = (-1 * parseFloat(elementosLadoEsquerdo[i + 1])) + incognita;
             }
 
+            // [...] e se o elemento seguinte for a própria incógnita...
             if (elementosLadoEsquerdo[i + 1] === incognita) {
+                // [...] tal elemento transforma-se em -1 concatenado com a incógnita
                 elementosLadoEsquerdo[i + 1] = (-1 + incognita);
-            }
-
-            if (isNaN(elementosLadoEsquerdo[i]) === true && typeof elementosLadoEsquerdo[i] !== 'string') {
-                elementosLadoEsquerdo[i] = -1 + incognita;
             }
         }
 
+        // Se existir algum elemento numérico...
         if (isNaN(elementosLadoEsquerdo[i]) === false) {
+            // [...] soma-se todos os valores numéricos encontrados
             somaElementosLadoEsquerdo += parseFloat(elementosLadoEsquerdo[i]);
         }
     }
 
-    ////////////////////////////////////////////////// - Tratamento dos elementos do lado direito da igualdade
+    // Criação do lado direito da equação
     let ladoDireito = ladosIgualdade[1];
     for (let i = 0; i < alfabeto.length; i++) {
         if (ladoDireito.includes(alfabeto[i])) {
