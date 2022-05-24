@@ -1,7 +1,10 @@
 function insereValor() {
     let form = document.querySelector("form");
     const randomID = `${Date.now().toString(36)}${Math.random().toString(36).substr(2)}`;
-    form.insertAdjacentHTML('beforeend', '<div class="div" id="' + randomID + '"><input class="valor" type="text" placeholder="Insira o valor aqui"><input type="button" class="special_remove" value="Remover" onclick="removeValor(\'' + randomID +'\')"></div>');
+    form.insertAdjacentHTML('beforeend',
+    `<div class="div" id="${randomID}">
+              <input class="valor" type="text" placeholder="Insira o valor aqui"><input type="button" class="special_remove" value="Remover" onclick="removeValor('${randomID}')">
+            </div>`);
 }
 
 function removeValor(idToRemove) {
