@@ -1,6 +1,6 @@
 function calculaEquacao() {
     //////////////////////////////////////////////////// - Criação dos elementos básicos
-    let sinais = ["+", "-"];
+    let sinais = ["+", "-", "–"];
     let equacao = document.getElementById("equacao").value;
     let ladosIgualdade = equacao.split(" = ");
     let alfabeto =  [
@@ -20,7 +20,8 @@ function calculaEquacao() {
     let elementosLadoEsquerdo = ladoEsquerdo.split(" ");
     let somaElementosLadoEsquerdo = 0;
     for (let i = 0; i < elementosLadoEsquerdo.length; i++) {
-        if (elementosLadoEsquerdo[i] === sinais[1]) {
+        if (elementosLadoEsquerdo[i] === sinais[1] || elementosLadoEsquerdo[i] === sinais[2]) {
+            console.log('entrou');
             if (isNaN(elementosLadoEsquerdo[i + 1]) === false) {
                 elementosLadoEsquerdo[i + 1] *= -1;
             }
@@ -38,6 +39,7 @@ function calculaEquacao() {
         }
 
         if (isNaN(elementosLadoEsquerdo[i]) === false) {
+            console.log('ENTROU');
             somaElementosLadoEsquerdo += parseFloat(elementosLadoEsquerdo[i]);
         }
     }
@@ -52,7 +54,7 @@ function calculaEquacao() {
     let elementosLadoDireito = ladoDireito.split(" ");
     let somaElementosLadoDireito = 0;
     for (let i = 0; i < elementosLadoDireito.length; i++) {
-        if (elementosLadoDireito[i] === sinais[1]) {
+        if (elementosLadoDireito[i] === sinais[1] || elementosLadoDireito[i] === sinais[2]) {
             if (isNaN(elementosLadoDireito[i + 1]) === false) {
                 elementosLadoDireito[i + 1] *= -1;
             }
@@ -102,6 +104,9 @@ function calculaEquacao() {
     let resultado = (somaElementosLadoDireito - somaElementosLadoEsquerdo) / coeficiente;
     document.getElementById("resultado").innerHTML = "Resultado: " + incognita + " = " + resultado;
 
+    if (somaElementosLadoEsquerdo < 0) {
+        somaElementosLadoEsquerdo = `(${somaElementosLadoEsquerdo})`
+    }
     document.getElementById("solucao").innerHTML = `Solução: x = (${somaElementosLadoDireito} - ${somaElementosLadoEsquerdo}) / ${coeficiente}`
 
     // Consoles.log
@@ -112,7 +117,7 @@ function calculaEquacao() {
     // console.log(ladoDireito);
     console.log('Os elementos do lado direito são: ' + elementosLadoDireito);
     console.log('A soma dos elementos do lado direito é: ' + somaElementosLadoDireito);
-    // console.log(somaElementosLadoEsquerdo);
+    console.log('A soma dos elemetnos do lado esquerdo é: ' + somaElementosLadoEsquerdo);
     console.log('O coeficiente é: ' + coeficiente);
     // console.log(resultado);
     // console.log(incognita);
