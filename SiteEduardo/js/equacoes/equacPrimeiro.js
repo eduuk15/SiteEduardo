@@ -28,6 +28,10 @@ function calculaEquacao() {
                 elementosLadoEsquerdo[i + 1] = (-1 * parseFloat(elementosLadoEsquerdo[i + 1])) + incognita;
             }
 
+            if (elementosLadoEsquerdo[i + 1] === incognita) {
+                elementosLadoEsquerdo[i + 1] = (-1 + incognita);
+            }
+
             if (isNaN(elementosLadoEsquerdo[i]) === true && typeof elementosLadoEsquerdo[i] !== 'string') {
                 elementosLadoEsquerdo[i] = -1 + incognita;
             }
@@ -54,6 +58,10 @@ function calculaEquacao() {
             }
             if (elementosLadoDireito[i + 1].toString().includes(`${incognita}`) && elementosLadoDireito[i + 1] !== incognita) {
                 elementosLadoDireito[i + 1] = (-1 * parseFloat(elementosLadoDireito[i + 1])) + incognita;
+            }
+
+            if (elementosLadoDireito[i + 1] === incognita) {
+                elementosLadoDireito[i + 1] = (-1 + incognita);
             }
 
             if (isNaN(elementosLadoDireito[i]) === true && typeof elementosLadoDireito[i] !== 'string') {
@@ -94,6 +102,7 @@ function calculaEquacao() {
     let resultado = (somaElementosLadoDireito - somaElementosLadoEsquerdo) / coeficiente;
     document.getElementById("resultado").innerHTML = "Resultado: " + incognita + " = " + resultado;
 
+    document.getElementById("solucao").innerHTML = `Solução: x = (${somaElementosLadoDireito} - ${somaElementosLadoEsquerdo}) / ${coeficiente}`
 
     // Consoles.log
     console.log('A equação é: ' + equacao);
