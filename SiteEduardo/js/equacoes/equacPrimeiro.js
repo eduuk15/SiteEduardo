@@ -21,7 +21,6 @@ function calculaEquacao() {
     let somaElementosLadoEsquerdo = 0;
     for (let i = 0; i < elementosLadoEsquerdo.length; i++) {
         if (elementosLadoEsquerdo[i] === sinais[1] || elementosLadoEsquerdo[i] === sinais[2]) {
-            console.log('entrou');
             if (isNaN(elementosLadoEsquerdo[i + 1]) === false) {
                 elementosLadoEsquerdo[i + 1] *= -1;
             }
@@ -39,7 +38,6 @@ function calculaEquacao() {
         }
 
         if (isNaN(elementosLadoEsquerdo[i]) === false) {
-            console.log('ENTROU');
             somaElementosLadoEsquerdo += parseFloat(elementosLadoEsquerdo[i]);
         }
     }
