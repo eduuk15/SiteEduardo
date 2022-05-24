@@ -51,6 +51,6 @@ function mostraSolucao() {
     document.getElementById("23").value = valores[6]; //
     document.getElementById("24").value = valores[7]; //
 
-    document.getElementById("solucao").innerHTML = '[' + '{' + valores[0] + ' X ' + valores[4] + ' X ' + valores[8] + '}' + ' + ' + '{' + valores[1] + ' X ' + valores[5] + ' X ' + valores[6] + '}' + ' + ' + '{' + valores[2] + ' X ' + valores[3] + ' X ' + valores[7] + '}' + ']'
-    + ' - ' + '[' + '{' + valores[1] + ' X ' + valores[3] + ' X ' + valores[8] + '}' + ' + ' + '{' + valores[0] + ' X ' + valores[5] + ' X ' + valores[7] + '}' + ' + ' + '{' + valores[2] + ' X ' + valores[4] + ' X ' + valores[6] + '}' + ']';
+    document.getElementById("solucao").innerHTML = `[{${valores[0]} X ${valores[4]} X ${valores[8]}} + {${valores[1]} X ${valores[5]} X ${valores[6]}} + {${valores[2]} X ${valores[3]} X ${valores[7]}}]
+    - [{${valores[1]} X ${valores[3]} X ${valores[8]}} + {${valores[0]} X ${valores[5]} X ${valores[7]}} + {${valores[2]} X ${valores[4]} X ${valores[6]}}]`;
 }

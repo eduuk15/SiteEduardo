@@ -79,5 +79,5 @@ function mostraSolucao() {
     document.getElementById("31").value = valores[11];
     document.getElementById("32").value = valores[15];
 
-    document.getElementById("solucao").innerHTML = '(' + valores[0] + ' X ' + cofatores[0] + ')' + ' + ' + '(' + valores[1] + ' X ' + cofatores[1] + ')' + ' + ' + '(' + valores[2] + ' X ' + cofatores[2] + ')' + ' + ' + '(' + valores[3] + ' X ' + cofatores[3] + ')';
+    document.getElementById("solucao").innerHTML = `(${valores[0]} X ${cofatores[0]}) + (${valores[1]} X ${cofatores[1]}) + (${valores[2]} X ${cofatores[2]}) + (${valores[3]} X ${cofatores[3]})`;
 }

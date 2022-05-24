@@ -33,6 +33,6 @@ function mostraSolucao() {
     document.getElementById("7").value = valores[2];
     document.getElementById("8").value = valores[3];
 
-    document.getElementById("solucao").innerHTML = 'det = ' + '(' + `${valores[0]} ` + 'X ' + `${valores[3]}` + ') ' + 
-    '- ' + '(' + `${valores[1]} ` + 'X ' + `${valores[2]}` + ')';
+    document.getElementById("solucao").innerHTML = `(${valores[0]} X ${valores[3]})
+    - (${valores[1]} X ${valores[2]})`;
 }
