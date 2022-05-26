@@ -9,9 +9,9 @@
 function leValoresForm() {
     // Criação do array vazio "valores"
     valores = [];
-     // Enquanto "i", a partir de 1, for menor que 5, "i" é incrementado
+    // Enquanto "i", a partir de 1, for menor que 5, "i" é incrementado
     for (let i = 1; i < 10; i++) {
-         // Joga os valores encontrados pra dentro do array
+        // Joga os valores encontrados pra dentro do array
         valores.push(document.getElementById(`${i}`).value);
     }
     // Retorna o array
