@@ -8,10 +8,10 @@
  */
 function leValoresForm() {
     // Criação do array vazio "valores"
-    valores = []
+    valores = [];
     // Enquanto "i", a partir de 1, for menor que 5, "i" é incrementado
     for (let i = 1; i < 5; i++) {
-        // Joga o valor encontrado pra dentro do array
+        // Joga os valores encontrados pra dentro do array
         valores.push(document.getElementById(`${i}`).value);
     }
     // Retorna o array
