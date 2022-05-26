@@ -36,7 +36,7 @@ function calculaDeterminante() {
     for (let i = 1; i < 10; i++) {
         // Se quaisquer elemento tiver um valor vazio...
         if (document.getElementById(`${i}`).value === "") {
-             // [...] um erro aparece em tela
+            // [...] um erro aparece em tela
             det = "Todos os campos devem ser preenchidos."
         }
     }
@@ -51,10 +51,10 @@ function calculaDeterminante() {
  * Método responsável por transpor a matriz 3x3
  */
 function transpoeMatriz() {
-     // Lê os valores do form
+    // Lê os valores do form
     valores = leValoresForm();
 
-     // Troca os elementos de valor
+    // Troca os elementos de valor
     document.getElementById("2").value = valores[3];
     document.getElementById("3").value = valores[6];
     document.getElementById("4").value = valores[1];
