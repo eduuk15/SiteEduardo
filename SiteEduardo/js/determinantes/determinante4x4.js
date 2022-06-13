@@ -1,5 +1,5 @@
 function leValoresForm() {
-    valores = []
+    valores = [];
     for (let i = 1; i < 17; i++) {
         valores.push(document.getElementById(`${i}`).value);
     }
@@ -19,8 +19,8 @@ function calculaDeterminante() {
     - ((valores[8] * valores[6] * valores[15]) + (valores[4] * valores[14] * valores[11]) + (valores[12] * valores[10] * valores[7]));
     let cofator2 = (-1) * det2;
 
-    let det3 = ((valores[4] * valores[9] * valores[15]) + (valores[8] * valores[14] * valores[7]) + (valores[12] * valores[5] * valores[11]))
-    - ((valores[8] * valores[5] * valores[15]) + (valores[4] * valores[14] * valores[11]) + (valores[12] * valores[9] * valores[7]));
+    let det3 = ((valores[4] * valores[9] * valores[15]) + (valores[8] * valores[13] * valores[7]) + (valores[12] * valores[5] * valores[11]))
+    - ((valores[8] * valores[5] * valores[15]) + (valores[4] * valores[13] * valores[11]) + (valores[12] * valores[9] * valores[7]));
     let cofator3 = 1 * det3;
 
     let det4 = ((valores[4] * valores[9] * valores[14]) + (valores[8] * valores[13] * valores[6]) + (valores[12] * valores[5] * valores[10]))

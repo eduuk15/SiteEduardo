@@ -1,5 +1,5 @@
 function leValoresForm() {
-    valores = []
+    valores = [];
     for (let i = 1; i < 10; i++) {
         valores.push(document.getElementById(`${i}`).value);
     }
