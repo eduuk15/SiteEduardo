@@ -15,21 +15,21 @@ function removeValor(idToRemove) {
 }
 
 function calculaMedia() {
-    let valor = document.querySelectorAll(".valor");
-    let valores = [].map.call(valor, function (input) {
+    let valores = document.querySelectorAll(".valor");
+    let valor = [].map.call(valores, function (input) {
       return parseFloat(input.value);
     });
 
-    let peso = document.querySelectorAll(".peso");
-    let pesos = [].map.call(peso, function (input) {
+    let pesos = document.querySelectorAll(".peso");
+    let peso = [].map.call(pesos, function (input) {
       return parseFloat(input.value);
     });
 
     let somaValores = 0
     let somaPesos = 0;
-    for (let i = 0; i < valores.length; i++) {
-        somaValores += valores[i] * pesos[i];
-        somaPesos += pesos[i]
+    for (let i = 0; i < valor.length; i++) {
+        somaValores += valor[i] * peso[i];
+        somaPesos += peso[i]
     }
 
     let resultado = somaValores / somaPesos;

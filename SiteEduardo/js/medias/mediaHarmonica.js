@@ -15,16 +15,16 @@ function removeValor(idToRemove) {
 
 function calculaMedia() {
 
-    let valor = document.querySelectorAll(".valor");
-    let valores = [].map.call(valor, function (input) {
+    let valores = document.querySelectorAll(".valor");
+    let valor = [].map.call(valores, function (input) {
       return parseFloat(input.value);
     });
 
     let totalValores = 0
     let somaInversoValores = 0;
-    for (let i = 0; i < valores.length; i++) {
-        totalValores = valores.length;
-        somaInversoValores += 1/valores[i];
+    for (let i = 0; i < valor.length; i++) {
+        totalValores = valor.length;
+        somaInversoValores += 1/valor[i];
     }
 
     let resultado = (totalValores) / (somaInversoValores);
