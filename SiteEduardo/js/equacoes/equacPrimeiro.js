@@ -148,18 +148,13 @@ function calculaEquacao() {
         somaElementosLadoEsquerdo = `(${somaElementosLadoEsquerdo})`
     }
     // Atribui no HTML a solução, que é dada pela lógica aplicada ao resultado
-    document.getElementById("solucao").innerHTML = `Solução: x = (${somaElementosLadoDireito} - ${somaElementosLadoEsquerdo}) / ${coeficiente}`
+    document.getElementById("solucao").innerHTML = `Solução: ${incognita} = {${somaElementosLadoDireito} - ${somaElementosLadoEsquerdo}} / ${coeficiente}`
 
     // Consoles.log
     console.log('A equação é: ' + equacao);
-    // console.log(ladosIgualdade);
-    // console.log(ladoEsquerdo);
     console.log('Os elementos do lado esquerdo são: ' + elementosLadoEsquerdo);
-    // console.log(ladoDireito);
     console.log('Os elementos do lado direito são: ' + elementosLadoDireito);
     console.log('A soma dos elementos do lado direito é: ' + somaElementosLadoDireito);
-    console.log('A soma dos elemetnos do lado esquerdo é: ' + somaElementosLadoEsquerdo);
+    console.log('A soma dos elementos do lado esquerdo é: ' + somaElementosLadoEsquerdo);
     console.log('O coeficiente é: ' + coeficiente);
-    // console.log(resultado);
-    // console.log(incognita);
 }
