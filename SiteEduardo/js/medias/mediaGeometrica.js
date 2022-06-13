@@ -45,6 +45,7 @@ function calculaMedia() {
   let valor = [].map.call(valores, function (input) {
     return parseFloat(input.value);
   });
+
   let totalValores = 0
   let produtoValores = 1;
   // Enquanto "i" for menor que a quantidade de valores...
@@ -53,12 +54,14 @@ function calculaMedia() {
     // Multiplica cada um dos valores encontrados, um pelo o outro
     produtoValores *= valor[i];
   }
+
   // Criação de "resultado" que recebe a raíz enésima de produtoValores, sendo "n" = totalValores
   let resultado = (produtoValores) ** (1/totalValores);
-  // Caso não exista resultadom exibe um erro
+  // Caso não exista resultado exibe um erro
   if (!resultado) {
     resultado = 'Não foi possível realizar o cálculo...';
   }
+
   // Mostra o resultado em tela
   document.getElementById("resultado").innerHTML = "Média Geométrica = " + resultado;
 }
