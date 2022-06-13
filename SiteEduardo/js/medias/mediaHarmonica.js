@@ -36,32 +36,32 @@ function removeValor(idToRemove) {
  * @author Eduardo Knopp
  * @since 13/06/2022
  *
- * Método responsável por calcular a média geométrica
+ * Método responsável por calcular a média harmônica
  */
 function calculaMedia() {
   // Criação de "valores", números recebidos dos inputs
-    let valores = document.querySelectorAll(".valor");
-    // Criação de "valor", que separa todos os "valores" encontrados num array
-    let valor = [].map.call(valores, function (input) {
-      return parseFloat(input.value);
-    });
+  let valores = document.querySelectorAll(".valor");
+  // Criação de "valor", que separa todos os "valores" encontrados num array
+  let valor = [].map.call(valores, function (input) {
+    return parseFloat(input.value);
+  });
 
-    let totalValores = 0
-    let somaInversoValores = 0;
-    // Enquanto "i" for menor que a quantidade de valores...
-    for (let i = 0; i < valor.length; i++) {
-        totalValores = valor.length;
-        // Soma o inverso de cada um dos valores encontrados
-        somaInversoValores += 1/valor[i];
-    }
-
-    // Criação do resultado que recebe a razão entre o total e a soma dos inversos
-    let resultado = (totalValores) / (somaInversoValores);
-    // Caso não exista resultado exibe um erro
-    if (!resultado) {
-      resultado = 'Não foi possível realizar o cálculo...';
-    }
-
-    // Mostra o resultado em tela
-    document.getElementById("resultado").innerHTML = "Média Harmônica = " + resultado;
+  let totalValores = 0
+  let somaInversoValores = 0;
+  // Enquanto "i" for menor que a quantidade de valores...
+  for (let i = 0; i < valor.length; i++) {
+      totalValores = valor.length;
+      // Soma o inverso de cada um dos valores encontrados
+      somaInversoValores += 1/valor[i];
   }
+
+  // Criação do resultado que recebe a razão entre o total e a soma dos inversos
+  let resultado = (totalValores) / (somaInversoValores);
+  // Caso não exista resultado exibe um erro
+  if (!resultado) {
+    resultado = 'Não foi possível realizar o cálculo...';
+  }
+
+  // Mostra o resultado em tela
+  document.getElementById("resultado").innerHTML = "Média Harmônica = " + resultado;
+}
