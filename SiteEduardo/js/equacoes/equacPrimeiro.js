@@ -35,6 +35,20 @@ function calculaEquacao() {
     let somaElementosLadoEsquerdo = 0;
     // Enquanto "i" for menor que o tamanho do array "elementosLadoEsquerdo", "i" é incrementado
     for (let i = 0; i < elementosLadoEsquerdo.length; i++) {
+
+        // Se um elemento incluir um fecha parênteses ')'...
+        if (elementosLadoEsquerdo[i].includes('(')) {
+            // [...] ele é retirado da strig
+            elementosLadoEsquerdo[i] = elementosLadoEsquerdo[i].replace('(', '');
+            console.log(elementosLadoEsquerdo[i]);
+        }
+
+        // Se um elemento incluir um abre parênteses '('...
+        if (elementosLadoEsquerdo[i].includes(')')) {
+            // [...] ele é retirado da strig
+            elementosLadoEsquerdo[i] = elementosLadoEsquerdo[i].replace(')', '');
+            console.log(elementosLadoEsquerdo[i]);
+        }
         // Se um elemento for um dos sinais negativos...
         if (elementosLadoEsquerdo[i] === sinais[1] || elementosLadoEsquerdo[i] === sinais[2]) {
             // [...] e se o elemento seguinte for numérico...
