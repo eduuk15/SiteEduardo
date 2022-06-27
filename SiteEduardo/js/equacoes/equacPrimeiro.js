@@ -33,38 +33,41 @@ function calculaEquacao() {
     let elementosLadoEsquerdo = ladoEsquerdo.split(" ");
     // Criação da soma dos elementos que compõe o array
     let somaElementosLadoEsquerdo = 0;
+
     // Enquanto "i" for menor que o tamanho do array "elementosLadoEsquerdo", "i" é incrementado
     for (let i = 0; i < elementosLadoEsquerdo.length; i++) {
-
+        
         // Se um elemento incluir um fecha parênteses ')'...
-        if (elementosLadoEsquerdo[i].includes('(')) {
+        if (elementosLadoEsquerdo[i].toString().includes('(')) {
             // [...] ele é retirado da strig
             elementosLadoEsquerdo[i] = elementosLadoEsquerdo[i].replace('(', '');
-            console.log(elementosLadoEsquerdo[i]);
         }
 
         // Se um elemento incluir um abre parênteses '('...
-        if (elementosLadoEsquerdo[i].includes(')')) {
+        if (elementosLadoEsquerdo[i].toString().includes(')')) {
             // [...] ele é retirado da strig
             elementosLadoEsquerdo[i] = elementosLadoEsquerdo[i].replace(')', '');
-            console.log(elementosLadoEsquerdo[i]);
         }
-        // Se um elemento for um dos sinais negativos...
-        if (elementosLadoEsquerdo[i] === sinais[1] || elementosLadoEsquerdo[i] === sinais[2]) {
-            // [...] e se o elemento seguinte for numérico...
-            if (isNaN(elementosLadoEsquerdo[i + 1]) === false) {
-                // [...] tal elemento é multiplicado por -1, ou seja, seu sinal é trocado
-                elementosLadoEsquerdo[i + 1] *= -1;
-            }
-            // [...] e se o elemento seguinte incluir a incógnita, não sendo a própria incógnita...
-            if (elementosLadoEsquerdo[i + 1].toString().includes(`${incognita}`) && elementosLadoEsquerdo[i + 1] !== incognita) {
-                // [...] o valor numérico de tal elemento é multiplicado por -1, ou seja, seu sinal é trocado, além de ser concatenado com a incógnita
-                elementosLadoEsquerdo[i + 1] = (-1 * parseFloat(elementosLadoEsquerdo[i + 1])) + incognita;
-            }
-            // [...] e se o elemento seguinte for a própria incógnita...
-            if (elementosLadoEsquerdo[i + 1] === incognita) {
-                // [...] tal elemento transforma-se em -1 concatenado com a incógnita
-                elementosLadoEsquerdo[i + 1] = (-1 + incognita);
+    
+        // Enquanto "i" for menor que o tamanho do array "elementosLadoEsquerdo", "i" é incrementado
+        for (let i = 0; i < elementosLadoEsquerdo.length; i++) {
+            // Se um elemento for um dos sinais negativos...
+            if (elementosLadoEsquerdo[i] === sinais[1] || elementosLadoEsquerdo[i] === sinais[2]) {
+                // [...] e se o elemento seguinte for numérico...
+                if (isNaN(elementosLadoEsquerdo[i + 1]) === false) {
+                    // [...] tal elemento é multiplicado por -1, ou seja, seu sinal é trocado
+                    elementosLadoEsquerdo[i + 1] *= -1;
+                }
+                // [...] e se o elemento seguinte incluir a incógnita, não sendo a própria incógnita...
+                if (elementosLadoEsquerdo[i + 1].toString().includes(`${incognita}`) && elementosLadoEsquerdo[i + 1] !== incognita) {
+                    // [...] o valor numérico de tal elemento é multiplicado por -1, ou seja, seu sinal é trocado, além de ser concatenado com a incógnita
+                    elementosLadoEsquerdo[i + 1] = (-1 * parseFloat(elementosLadoEsquerdo[i + 1])) + incognita;
+                }
+                // [...] e se o elemento seguinte for a própria incógnita...
+                if (elementosLadoEsquerdo[i + 1] === incognita) {
+                    // [...] tal elemento transforma-se em -1 concatenado com a incógnita
+                    elementosLadoEsquerdo[i + 1] = (-1 + incognita);
+                }
             }
         }
 
@@ -127,6 +130,10 @@ function calculaEquacao() {
             if (elementosLadoEsquerdo[i] === incognita) {
                 // [...] tal elemento transforma-se em 1 concatenado com a incógnita
                 elementosLadoEsquerdo[i] = 1 + incognita;
+            // [...] e se o elemento for a própria incógnita, porém negativa    
+            } else if (elementosLadoEsquerdo[i] === '-' + incognita) {
+                // [...] tal elemento transforma-se em -1 concatenado com a incógnita
+                elementosLadoEsquerdo[i] = -1 + incognita;
             }
             // [...] Soma-se os valores numéricos encontrados nos elementos que possuírem incógnita
             somaCoeficientesEsquerdo += parseFloat(elementosLadoEsquerdo[i]);
