@@ -34,43 +34,53 @@ function calculaEquacao() {
     // Criação da soma dos elementos que compõe o array
     let somaElementosLadoEsquerdo = 0;
 
-    // Enquanto "i" for menor que o tamanho do array "elementosLadoEsquerdo", "i" é incrementado
-    for (let i = 0; i < elementosLadoEsquerdo.length; i++) {
-        
-        // Se um elemento incluir um fecha parênteses ')'...
-        if (elementosLadoEsquerdo[i].toString().includes('(')) {
-            // [...] ele é retirado da strig
-            elementosLadoEsquerdo[i] = elementosLadoEsquerdo[i].replace('(', '');
-        }
+    let resultadosParentesesEsquerdo = [];
+    let indexFechaParentesesEsquerdo = [];
+    let indexAbreParentesesEsquerdo = [];
 
-        // Se um elemento incluir um abre parênteses '('...
-        if (elementosLadoEsquerdo[i].toString().includes(')')) {
+    // Enquanto "f" for menor que o tamanho do array "elementosLadoEsquerdo", "f" é incrementado
+    for (let f = 0; f < elementosLadoEsquerdo.length; f++) {
+        // Se um elemento incluir um abre parênteses ')'...
+        if (elementosLadoEsquerdo[f].toString().includes('(')) {
             // [...] ele é retirado da strig
-            elementosLadoEsquerdo[i] = elementosLadoEsquerdo[i].replace(')', '');
+            elementosLadoEsquerdo[f] = elementosLadoEsquerdo[f].replace('(', '');
+            indexAbreParentesesEsquerdo.push(elementosLadoEsquerdo.indexOf(elementosLadoEsquerdo[f]));
         }
-    
-        // Enquanto "i" for menor que o tamanho do array "elementosLadoEsquerdo", "i" é incrementado
-        for (let i = 0; i < elementosLadoEsquerdo.length; i++) {
-            // Se um elemento for um dos sinais negativos...
-            if (elementosLadoEsquerdo[i] === sinais[1] || elementosLadoEsquerdo[i] === sinais[2]) {
-                // [...] e se o elemento seguinte for numérico...
-                if (isNaN(elementosLadoEsquerdo[i + 1]) === false) {
-                    // [...] tal elemento é multiplicado por -1, ou seja, seu sinal é trocado
-                    elementosLadoEsquerdo[i + 1] *= -1;
-                }
-                // [...] e se o elemento seguinte incluir a incógnita, não sendo a própria incógnita...
-                if (elementosLadoEsquerdo[i + 1].toString().includes(`${incognita}`) && elementosLadoEsquerdo[i + 1] !== incognita) {
-                    // [...] o valor numérico de tal elemento é multiplicado por -1, ou seja, seu sinal é trocado, além de ser concatenado com a incógnita
-                    elementosLadoEsquerdo[i + 1] = (-1 * parseFloat(elementosLadoEsquerdo[i + 1])) + incognita;
-                }
-                // [...] e se o elemento seguinte for a própria incógnita...
-                if (elementosLadoEsquerdo[i + 1] === incognita) {
-                    // [...] tal elemento transforma-se em -1 concatenado com a incógnita
-                    elementosLadoEsquerdo[i + 1] = (-1 + incognita);
-                }
+        // Se um elemento incluir um feca parênteses '('...
+        if (elementosLadoEsquerdo[f].toString().includes(')')) {
+            // [...] ele é retirado da strig
+            elementosLadoEsquerdo[f] = elementosLadoEsquerdo[f].replace(')', '');
+            indexFechaParentesesEsquerdo.push(elementosLadoEsquerdo.indexOf(elementosLadoEsquerdo[f]));
+        }
+    }
+    // Enquanto "j" for menor que o tamanho do array "elementosLadoEsquerdo", "j" é incrementado
+    for (let j = 0; j < elementosLadoEsquerdo.length; j++) {
+        // Se um elemento for um dos sinais negativos...
+        if (elementosLadoEsquerdo[j] === sinais[1] || elementosLadoEsquerdo[j] === sinais[2]) {
+            // [...] e se o elemento seguinte for numérico...
+            if (isNaN(elementosLadoEsquerdo[j + 1]) === false) {
+                // [...] tal elemento é multiplicado por -1, ou seja, seu sinal é trocado
+                elementosLadoEsquerdo[j + 1] *= -1;
+            }
+            // [...] e se o elemento seguinte incluir a incógnita, não sendo a própria incógnita...
+            if (elementosLadoEsquerdo[j + 1].toString().includes(`${incognita}`) && elementosLadoEsquerdo[j + 1] !== incognita) {
+                // [...] o valor numérico de tal elemento é multiplicado por -1, ou seja, seu sinal é trocado, além de ser concatenado com a incógnita
+                elementosLadoEsquerdo[j + 1] = (-1 * parseFloat(elementosLadoEsquerdo[j + 1])) + incognita;
+            }
+            // [...] e se o elemento seguinte for a própria incógnita...
+            if (elementosLadoEsquerdo[j + 1] === incognita) {
+                // [...] tal elemento transforma-se em -1 concatenado com a incógnita
+                elementosLadoEsquerdo[j + 1] = (-1 + incognita);
             }
         }
-
+    }
+    // Enqaunto "a" for menor que o tamanho do array "indexFechaParenteses", "a" é incrementado
+    for (let a = 0; a < indexFechaParentesesEsquerdo.length; a++) {
+        // Para cada par de parênteses, adiciona o resultado das operações dentro do par para o array de resultados
+        resultadosParentesesEsquerdo.push(parseFloat(elementosLadoEsquerdo[indexAbreParentesesEsquerdo[a]]) + parseFloat(elementosLadoEsquerdo[indexFechaParentesesEsquerdo[a]]));
+    }
+    // Enquanto "i" for menor que o tamanho do array "elementosLadoEsquerdo", "i" é incrementado
+    for (let i = 0; i < elementosLadoEsquerdo.length; i++) {
         // Se existir algum elemento numérico...
         if (isNaN(elementosLadoEsquerdo[i]) === false) {
             // [...] soma-se todos os valores numéricos encontrados
@@ -120,6 +130,77 @@ function calculaEquacao() {
         }
     }
 
+
+
+
+
+
+
+    let resultadosParentesesDireito = [];
+    let indexFechaParentesesDireito = [];
+    let indexAbreParentesesDireito = [];
+
+    // Enquanto "f" for menor que o tamanho do array "elementosLadoDireito", "f" é incrementado
+    for (let f = 0; f < elementosLadoDireito.length; f++) {
+        // Se um elemento incluir um abre parênteses ')'...
+        if (elementosLadoDireito[f].toString().includes('(')) {
+            // [...] ele é retirado da strig
+            elementosLadoDireito[f] = elementosLadoDireito[f].replace('(', '');
+            indexAbreParentesesDireito.push(elementosLadoDireito.indexOf(elementosLadoDireito[f]));
+        }
+        // Se um elemento incluir um feca parênteses '('...
+        if (elementosLadoDireito[f].toString().includes(')')) {
+            // [...] ele é retirado da strig
+            elementosLadoDireito[f] = elementosLadoDireito[f].replace(')', '');
+            indexFechaParentesesDireito.push(elementosLadoDireito.indexOf(elementosLadoDireito[f]));
+        }
+    }
+    // Enquanto "j" for menor que o tamanho do array "elementosLadoDireito", "j" é incrementado
+    for (let j = 0; j < elementosLadoDireito.length; j++) {
+        // Se um elemento for um dos sinais negativos...
+        if (elementosLadoDireito[j] === sinais[1] || elementosLadoDireito[j] === sinais[2]) {
+            // [...] e se o elemento seguinte for numérico...
+            if (isNaN(elementosLadoDireito[j + 1]) === false) {
+                // [...] tal elemento é multiplicado por -1, ou seja, seu sinal é trocado
+                elementosLadoDireito[j + 1] *= -1;
+            }
+            // [...] e se o elemento seguinte incluir a incógnita, não sendo a própria incógnita...
+            if (elementosLadoDireito[j + 1].toString().includes(`${incognita}`) && elementosLadoDireito[j + 1] !== incognita) {
+                // [...] o valor numérico de tal elemento é multiplicado por -1, ou seja, seu sinal é trocado, além de ser concatenado com a incógnita
+                elementosLadoDireito[j + 1] = (-1 * parseFloat(elementosLadoDireito[j + 1])) + incognita;
+            }
+            // [...] e se o elemento seguinte for a própria incógnita...
+            if (elementosLadoDireito[j + 1] === incognita) {
+                // [...] tal elemento transforma-se em -1 concatenado com a incógnita
+                elementosLadoDireito[j + 1] = (-1 + incognita);
+            }
+        }
+    }
+    // Enqaunto "a" for menor que o tamanho do array "indexFechaParenteses", "a" é incrementado
+    for (let a = 0; a < indexFechaParentesesDireito.length; a++) {
+        // Para cada par de parênteses, adiciona o resultado das operações dentro do par para o array de resultados
+        resultadosParentesesDireito.push(parseFloat(elementosLadoDireito[indexAbreParentesesDireito[a]]) + parseFloat(elementosLadoDireito[indexFechaParentesesDireito[a]]));
+    }
+    // Enquanto "i" for menor que o tamanho do array "elementosLadoDireito", "i" é incrementado
+    for (let i = 0; i < elementosLadoDireito.length; i++) {
+        // Se existir algum elemento numérico...
+        if (isNaN(elementosLadoDireito[i]) === false) {
+            // [...] soma-se todos os valores numéricos encontrados
+            elementosLadoDireito += parseFloat(elementosLadoDireito[i]);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     // Criação da soma dos coeficientes do lado esquerdo
     let somaCoeficientesEsquerdo = 0;
     // Enquanto "i" for menor que o tamanho do array "elementosLadoEsquerdo", "i" é incrementado
@@ -130,7 +211,7 @@ function calculaEquacao() {
             if (elementosLadoEsquerdo[i] === incognita) {
                 // [...] tal elemento transforma-se em 1 concatenado com a incógnita
                 elementosLadoEsquerdo[i] = 1 + incognita;
-            // [...] e se o elemento for a própria incógnita, porém negativa    
+            // [...] e se o elemento for a própria incógnita, porém negativa
             } else if (elementosLadoEsquerdo[i] === '-' + incognita) {
                 // [...] tal elemento transforma-se em -1 concatenado com a incógnita
                 elementosLadoEsquerdo[i] = -1 + incognita;
