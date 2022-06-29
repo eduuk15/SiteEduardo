@@ -74,6 +74,26 @@ function calculaEquacao() {
             }
         }
     }
+
+    let produtosDentroParentesesEsquerdo = [];
+    for (let z = 0; z < elementosLadoEsquerdo.length; z++) {
+        if (elementosLadoEsquerdo[z] === '.' && elementosLadoEsquerdo[z + 2] !== '.') {
+            elementosLadoEsquerdo[z] = elementosLadoEsquerdo[z - 1] * elementosLadoEsquerdo[z + 1];
+            elementosLadoEsquerdo[z - 1] = 0;
+            elementosLadoEsquerdo[z + 1] = 0;
+            // produtosDentroParentesesEsquerdo.push(parseFloat(elementosLadoEsquerdo[z - 1]) * parseFloat(elementosLadoEsquerdo[z + 1]));
+        }
+        if (elementosLadoEsquerdo[z] === '.' && elementosLadoEsquerdo[z + 2] === '.' ) {
+            elementosLadoEsquerdo[z] = elementosLadoEsquerdo[z - 1] * elementosLadoEsquerdo[z + 1];
+            elementosLadoEsquerdo[z + 2] = elementosLadoEsquerdo[z + 1] * elementosLadoEsquerdo[z + 3];
+            elementosLadoEsquerdo[z - 1] = 0;
+            elementosLadoEsquerdo[z + 1] = 0;
+            elementosLadoEsquerdo[z + 3] = 0;
+        }
+    }
+
+    console.log(elementosLadoEsquerdo);
+
     if (indexFechaParentesesEsquerdo.length >= 0) {
         // Enqaunto "a" for menor que o tamanho do array "indexFechaParenteses", "a" é incrementado
         for (let d = 0; d < indexFechaParentesesEsquerdo.length; d++) {
@@ -149,12 +169,14 @@ function calculaEquacao() {
         }
     }
 
-    if (indexFechaParentesesDireito.length >= 0)
+    if (indexFechaParentesesDireito.length >= 0) {
         // Enqaunto "a" for menor que o tamanho do array "indexFechaParenteses", "a" é incrementado
         for (let i = 0; i < indexFechaParentesesDireito.length; i++) {
             // Para cada par de parênteses, adiciona o resultado das operações dentro do par para o array de resultados
             resultadosParentesesDireito.push(parseFloat(elementosLadoDireito[indexAbreParentesesDireito[i]]) + parseFloat(elementosLadoDireito[indexFechaParentesesDireito[i]]));
         }
+    }
+
     // Enquanto "i" for menor que o tamanho do array "elementosLadoDireito", "i" é incrementado
     for (let j = 0; j < elementosLadoDireito.length; j++) {
         // Se existir algum elemento numérico...
