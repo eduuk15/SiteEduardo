@@ -47,7 +47,6 @@ function calculaEquacao() {
                 elementosLadoEsquerdo[i] = incognita;
             }
             ladoEsquerdo = ladoEsquerdo.replace(elementosLadoEsquerdo[i], "");
-            console.log(ladoEsquerdo);
         }
     }
 
@@ -72,6 +71,46 @@ function calculaEquacao() {
         }
     }
 
+
+    let multiplicadorEsquerdo = 1;
+    for (i = 0; i < elementosLadoEsquerdo.length; i++) {
+        if (elementosLadoEsquerdo[i] === '*') {
+            multiplicadorEsquerdo *= elementosLadoEsquerdo[i + 1];
+            ladoEsquerdo = ladoEsquerdo.replace(multiplicadorEsquerdo, '');
+            ladoEsquerdo = ladoEsquerdo.replace('*', '');
+        }
+    }
+
+
+    let multiplicadorDireito = 1;
+    for (i = 0; i < elementosLadoDireito.length; i++) {
+        if (elementosLadoDireito[i] === '*') {
+            multiplicadorDireito *= elementosLadoDireito[i + 1];
+            ladoDireito = ladoDireito.replace(multiplicadorDireito, '');
+            ladoDireito = ladoDireito.replace('*', '');
+        }
+    }
+
+
+    let divisorEsquerdo = 1;
+    for (i = 0; i < elementosLadoEsquerdo.length; i++) {
+        if (elementosLadoEsquerdo[i] === '/') {
+            divisorEsquerdo *= elementosLadoEsquerdo[i + 1];
+            ladoEsquerdo = ladoEsquerdo.replace(divisorEsquerdo, '');
+            ladoEsquerdo = ladoEsquerdo.replace('/', '');
+        }
+    }
+
+
+    let divisorDireito = 1;
+    for (i = 0; i < elementosLadoDireito.length; i++) {
+        if (elementosLadoEsquerdo[i] === '/') {
+            divisorDireito *= elementosLadoDireito[i + 1];
+            ladoDireito = ladoDireito.replace(divisorDireito, '');
+            ladoDireito = ladoDireito.replace('/', '');
+        }
+    }
+
     ladoEsquerdo = ladoEsquerdo.replace(/\s/g, "");
     ladoDireito = ladoDireito.replace(/\s/g, "");
 
@@ -79,13 +118,23 @@ function calculaEquacao() {
         ladoEsquerdo = 0;
     }
 
-    let ladoEsquerdoSemIncognita = parseFloat(eval(ladoEsquerdo));
-    let ladoDireitoSemIncognita = parseFloat(eval(ladoDireito));
+    if (!ladoDireito) {
+        ladoDireito = 0;
+    }
 
-    let resultadoEntreLados = parseFloat(ladoDireitoSemIncognita) - parseFloat(ladoEsquerdoSemIncognita);
+
+    let ladoEsquerdoSemIncognita = parseFloat(eval(ladoEsquerdo));
+    console.log(ladoEsquerdoSemIncognita);
+    let ladoDireitoSemIncognita = parseFloat(eval(ladoDireito));
+    console.log(ladoDireitoSemIncognita);
+
+    let resultadoEntreLados = (parseFloat(ladoDireitoSemIncognita) - parseFloat(ladoEsquerdoSemIncognita));
+    console.log(resultadoEntreLados);
     let resultadoCoeficiente = parseFloat(somaCoeficientesEsquerdo) - parseFloat(somaCoeficientesDireito);
+    console.log(resultadoCoeficiente);
     let resultadoFinal = resultadoEntreLados / resultadoCoeficiente;
-    let solucao = `${parseFloat(ladoDireitoSemIncognita)} - ${parseFloat(ladoEsquerdoSemIncognita)} / ${parseFloat(somaCoeficientesEsquerdo)} - ${parseFloat(somaCoeficientesDireito)}`
+    let solucao = `{(${parseFloat(ladoDireitoSemIncognita)} - ${parseFloat(ladoEsquerdoSemIncognita)}) * ${parseFloat(multiplicadorDireito)} / ${parseFloat(multiplicadorEsquerdo)}} /
+    (${parseFloat(somaCoeficientesEsquerdo)} - ${parseFloat(somaCoeficientesDireito)})`;
 
     document.getElementById("resultado").innerHTML = "Resultado: " + incognita + " = " + resultadoFinal;
     document.getElementById("solucao").innerHTML = `Solução: ${incognita} = ${solucao}`;
