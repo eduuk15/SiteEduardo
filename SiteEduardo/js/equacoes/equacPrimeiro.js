@@ -78,9 +78,11 @@ function calculaEquacao() {
     let produtosDentroParentesesEsquerdo = [];
     for (let z = 0; z < elementosLadoEsquerdo.length; z++) {
         if (elementosLadoEsquerdo[z] === '.' && elementosLadoEsquerdo[z + 2] !== '.') {
-            elementosLadoEsquerdo[z] = elementosLadoEsquerdo[z - 1] * elementosLadoEsquerdo[z + 1];
-            elementosLadoEsquerdo[z - 1] = 0;
-            elementosLadoEsquerdo[z + 1] = 0;
+            elementosLadoEsquerdo[z] = parseFloat(elementosLadoEsquerdo[z - 1]) * parseFloat(elementosLadoEsquerdo[z + 1]);
+            // elementosLadoEsquerdo.splice(z - 2, 1);
+            //elementosLadoEsquerdo.splice(z, 1);
+            console.log('Os elementos são');
+            console.log(elementosLadoEsquerdo);
             // produtosDentroParentesesEsquerdo.push(parseFloat(elementosLadoEsquerdo[z - 1]) * parseFloat(elementosLadoEsquerdo[z + 1]));
         }
         if (elementosLadoEsquerdo[z] === '.' && elementosLadoEsquerdo[z + 2] === '.' ) {
