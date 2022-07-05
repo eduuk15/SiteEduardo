@@ -9,6 +9,20 @@ function calculaEquacao() {
     const equacao = document.getElementById("equacao").value;
     const ladoEquacao = equacao.split(' = ');
 
+
+    const multiplicacao = (x, incognita) => {
+        return x * parseFloat(incognita);
+    }
+
+    const subtracao = (incognita1, incognita2, x) => {
+        return (parseFloat(incognita1) - parseFloat(incognita2)) + x;
+    }
+
+    const divisao = (x, incognita) => {
+        return 1/x * parseFloat(incognita);
+    }
+
+
     let ladoEsquerdo = ladoEquacao[0];
     let ladoDireito = ladoEquacao[1];
 
@@ -29,7 +43,6 @@ function calculaEquacao() {
         }
     }
 
-
     let somaCoeficientesEsquerdo = 0;
     for (i = 0; i < elementosLadoEsquerdo.length; i++) {
         if (elementosLadoEsquerdo[i].toString().includes(incognita)) {
@@ -41,6 +54,26 @@ function calculaEquacao() {
             }
             if (elementosLadoEsquerdo[i - 1] === '-') {
                 elementosLadoEsquerdo[i] = -1 + elementosLadoEsquerdo[i];
+            }
+            if (elementosLadoEsquerdo[i + 1] === '*') {
+                ladoEsquerdo = ladoEsquerdo.replace(elementosLadoEsquerdo[i], "");
+                if (elementosLadoEsquerdo[i + 2].toString().includes('(')) {
+                    elementosLadoEsquerdo[i + 2] = elementosLadoEsquerdo[i + 2].replace('(', '');
+                    elementosLadoEsquerdo[i + 2] = elementosLadoEsquerdo[i + 2].replace(')', '');
+                }
+                elementosLadoEsquerdo[i] = parseFloat(elementosLadoEsquerdo[i]) * parseFloat(eval(elementosLadoEsquerdo[i + 2])) + incognita;
+                ladoEsquerdo = ladoEsquerdo.replace(elementosLadoEsquerdo[i + 2], '');
+                ladoEsquerdo = ladoEsquerdo.replace('*', '');
+            }
+            if (elementosLadoEsquerdo[i - 1] === '*') {
+                ladoEsquerdo = ladoEsquerdo.replace(elementosLadoEsquerdo[i], "");
+                if (elementosLadoEsquerdo[i - 2].toString().includes('(')) {
+                    elementosLadoEsquerdo[i - 2] = elementosLadoEsquerdo[i - 2].replace('(', '');
+                    elementosLadoEsquerdo[i - 2] = elementosLadoEsquerdo[i - 2].replace(')', '');
+                }
+                elementosLadoEsquerdo[i] = parseFloat(elementosLadoEsquerdo[i]) * parseFloat(eval(elementosLadoEsquerdo[i - 2])) + incognita;
+                ladoEsquerdo = ladoEsquerdo.replace(elementosLadoEsquerdo[i - 2], '');
+                ladoEsquerdo = ladoEsquerdo.replace('*', '');
             }
             somaCoeficientesEsquerdo += parseFloat(elementosLadoEsquerdo[i]);
             if (elementosLadoEsquerdo[i] === 1 + incognita) {
@@ -63,6 +96,26 @@ function calculaEquacao() {
             if (elementosLadoDireito[i - 1] === '-') {
                 elementosLadoDireito[i] = -1 + elementosLadoDireito[i];
             }
+            if (elementosLadoDireito[i + 1] === '*') {
+                ladoDireito = ladoDireito.replace(elementosLadoDireito[i], "");
+                if (elementosLadoDireito[i + 2].toString().includes('(')) {
+                    elementosLadoDireito[i + 2] = elementosLadoDireito[i + 2].replace('(', '');
+                    elementosLadoDireito[i + 2] = elementosLadoDireito[i + 2].replace(')', '');
+                }
+                elementosLadoDireito[i] = parseFloat(elementosLadoDireito[i]) * parseFloat(eval(elementosLadoDireito[i + 2])) + incognita;
+                ladoDireito = ladoDireito.replace(elementosLadoDireito[i + 2], '');
+                ladoDireito = ladoDireito.replace('*', '');
+            }
+            if (elementosLadoDireito[i - 1] === '*') {
+                ladoDireito = ladoDireito.replace(elementosLadoDireito[i], "");
+                if (elementosLadoDireito[i - 2].toString().includes('(')) {
+                    elementosLadoDireito[i - 2] = elementosLadoDireito[i - 2].replace('(', '');
+                    elementosLadoDireito[i - 2] = elementosLadoDireito[i - 2].replace(')', '');
+                }
+                elementosLadoDireito[i] = parseFloat(eval(elementosLadoDireito[i])) * parseFloat(elementosLadoDireito[i - 2]) + incognita;
+                ladoDireito = ladoDireito.replace(elementosLadoDireito[i - 2], '');
+                ladoDireito = ladoDireito.replace('*', '');
+            }
             somaCoeficientesDireito += parseFloat(elementosLadoDireito[i]);
             if (elementosLadoDireito[i] === 1 + incognita) {
                 elementosLadoDireito[i] = incognita;
@@ -71,58 +124,37 @@ function calculaEquacao() {
         }
     }
 
-
-    let multiplicadorEsquerdo = 1;
-    for (i = 0; i < elementosLadoEsquerdo.length; i++) {
-        if (elementosLadoEsquerdo[i] === '*') {
-            multiplicadorEsquerdo *= elementosLadoEsquerdo[i + 1];
-            ladoEsquerdo = ladoEsquerdo.replace(multiplicadorEsquerdo, '');
-            ladoEsquerdo = ladoEsquerdo.replace('*', '');
-        }
-    }
-
-
-    let multiplicadorDireito = 1;
-    for (i = 0; i < elementosLadoDireito.length; i++) {
-        if (elementosLadoDireito[i] === '*') {
-            multiplicadorDireito *= elementosLadoDireito[i + 1];
-            ladoDireito = ladoDireito.replace(multiplicadorDireito, '');
-            ladoDireito = ladoDireito.replace('*', '');
-        }
-    }
-
-
-    let divisorEsquerdo = 1;
-    for (i = 0; i < elementosLadoEsquerdo.length; i++) {
-        if (elementosLadoEsquerdo[i] === '/') {
-            divisorEsquerdo *= elementosLadoEsquerdo[i + 1];
-            ladoEsquerdo = ladoEsquerdo.replace(divisorEsquerdo, '');
-            ladoEsquerdo = ladoEsquerdo.replace('/', '');
-        }
-    }
-
-
-    let divisorDireito = 1;
-    for (i = 0; i < elementosLadoDireito.length; i++) {
-        if (elementosLadoEsquerdo[i] === '/') {
-            divisorDireito *= elementosLadoDireito[i + 1];
-            ladoDireito = ladoDireito.replace(divisorDireito, '');
-            ladoDireito = ladoDireito.replace('/', '');
-        }
-    }
-
     ladoEsquerdo = ladoEsquerdo.replace(/\s/g, "");
     ladoDireito = ladoDireito.replace(/\s/g, "");
 
-    if (!ladoEsquerdo) {
+    if (!ladoEsquerdo || ladoEsquerdo === '+' || ladoEsquerdo === '-' || ladoEsquerdo === '*' || ladoEsquerdo === '/' || ladoEsquerdo === '()') {
         ladoEsquerdo = 0;
     }
 
-    if (!ladoDireito) {
+    if (!ladoDireito || ladoDireito === '+' || ladoDireito === '-' || ladoDireito === '*' || ladoDireito === '/') {
         ladoDireito = 0;
     }
 
+    const soma = (elemento1, elemento2, x) => {
+        return (parseFloat(elemento1) + parseFloat(elemento2)) + x;
+    }
 
+    let resultadoLadoEsquerdo = [];
+    for (let i = 0; i < elementosLadoEsquerdo.length; i++) {
+        if (elementosLadoEsquerdo[i] === '+' && elementosLadoEsquerdo[i - 1].toString().includes('x') === false && elementosLadoEsquerdo[i + 1].toString().includes('x') === false) {
+            resultadoLadoEsquerdo.push(soma(elementosLadoEsquerdo[i - 1], elementosLadoEsquerdo[i + 1], ''));
+            elementosLadoEsquerdo[i + 1] = soma(elementosLadoEsquerdo[i - 1], elementosLadoEsquerdo[i + 1], '');
+            elementosLadoEsquerdo[i - 1] = 0;
+        }
+        if (elementosLadoEsquerdo[i] === '+' && elementosLadoEsquerdo[i - 1].toString().includes('x') && elementosLadoEsquerdo[i + 1].toString().includes('x')) {
+            resultadoLadoEsquerdo.push(soma(elementosLadoEsquerdo[i - 1], elementosLadoEsquerdo[i + 1], 'x'));
+            elementosLadoEsquerdo[i + 1] = soma(elementosLadoEsquerdo[i - 1], elementosLadoEsquerdo[i + 1], 'x');
+            elementosLadoEsquerdo[i - 1] = 0;
+        }
+    }
+    console.log(resultadoLadoEsquerdo);
+
+    console.log(elementosLadoEsquerdo);
     let ladoEsquerdoSemIncognita = parseFloat(eval(ladoEsquerdo));
     console.log(ladoEsquerdoSemIncognita);
     let ladoDireitoSemIncognita = parseFloat(eval(ladoDireito));
@@ -130,10 +162,11 @@ function calculaEquacao() {
 
     let resultadoEntreLados = (parseFloat(ladoDireitoSemIncognita) - parseFloat(ladoEsquerdoSemIncognita));
     console.log(resultadoEntreLados);
+    console.log(somaCoeficientesEsquerdo);
     let resultadoCoeficiente = parseFloat(somaCoeficientesEsquerdo) - parseFloat(somaCoeficientesDireito);
     console.log(resultadoCoeficiente);
     let resultadoFinal = resultadoEntreLados / resultadoCoeficiente;
-    let solucao = `{(${parseFloat(ladoDireitoSemIncognita)} - ${parseFloat(ladoEsquerdoSemIncognita)}) * ${parseFloat(multiplicadorDireito)} / ${parseFloat(multiplicadorEsquerdo)}} /
+    let solucao = `{(${parseFloat(ladoDireitoSemIncognita)} - ${parseFloat(ladoEsquerdoSemIncognita)}) /
     (${parseFloat(somaCoeficientesEsquerdo)} - ${parseFloat(somaCoeficientesDireito)})`;
 
     document.getElementById("resultado").innerHTML = "Resultado: " + incognita + " = " + resultadoFinal;
